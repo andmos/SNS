@@ -7,5 +7,6 @@ different aspects of network security, including IDS, mailserver, firewall, LAMP
 
 This repo contains a Vagrantfile for current setup, as well as setupscripts for the project. 
 
-V 0.1 "Glittertinden"
+V 0.1 "Glittertind"
 ===  
+Contains basic WEB - installasion.
