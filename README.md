@@ -9,4 +9,9 @@ This repo contains a Vagrantfile for current setup, as well as setupscripts for 
 
 V 0.1 "Glittertind"
 ===  
-Contains basic WEB - installasion.
+Contains basic WEB - installasion:
+- Apache2
+- PHP5
+- MySQL
+
+
