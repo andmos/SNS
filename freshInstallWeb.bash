@@ -9,10 +9,12 @@ programs="build-essential vim tor  ssh curl  htop git make traceroute tcptracero
 echo "Installing web-server essentials..."
 sudo apt-get update >/dev/null 2>&1 
 
+
 pass=$(</vagrant/mysqlpw.txt)
  
  sudo debconf-set-selections <<< "mysql-server mysql-server/root_password password $pass" 
  sudo debconf-set-selections <<< "mysql-server mysql-server/root_password_again password $pass"
+
 
 
 for program in $programs
