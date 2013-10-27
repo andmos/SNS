@@ -29,4 +29,6 @@ echo "Symlincing /www folder to /Vagrant folder..."
 rm -rf /var/www
 ln -fs /vagrant /var/www 
 
+sudo echo "Simple Network Server, v.0.1 'Glittertind'" >> /etc/motd.tail 
+
 echo "All done! go 'vagrant ssh'" 
