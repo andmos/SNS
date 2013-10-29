@@ -3,21 +3,18 @@
 #------------THIS FILE NEEDS WORKING ON, NOT FINNISHED.
 
 pass=$(</vagrant/mysqlpw.txt)
+SNORTIP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2| cut -d' ' -f1)
 
 echo "Setting up  snort-database:"
 
+ 
 mysql -u root --password=$pass -e 'create database snort'
 
-function setParameter(){
-        sudo debconf-set-selection <<< $1
-}
+echo snort-mysql snort-mysql/address_range  string  $SNORTIP/32 | sudo debconf-set-selections
+echo snort-mysql snort-mysql/configure_db    boolean false | sudo debconf-set-selections
+echo snort-mysql snort-mysql/db_host string localhost | sudo debconf-set-selections
+echo snort-mysql snort-mysql/db_user string root | sudo debconf-set-selection
 
-
-setParameter echo "snort-mysql snort-mysql/db_pass $password"
-setParameter echo "snort-mysql snort-mysql/address_range   string  127.0.0.1/32" 
-setParameter echo "snort-mysql snort-mysql/send_stats  boolean true"
-setParameter echo "snort-mysql snort-mysql/please_restart_manually note"
-setParameter echo "snort-mysql snort-mysql/configure_db    boolean false"
 
 sudo apt-get install snort-mysql -y
 
