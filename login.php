@@ -5,8 +5,11 @@
     $hostname = "localhost";	
     $database = "konto";
 
-	$con = mysqli_connect($hostname, $username, $password) or die("Unable to connecto to MySQL");
+	$con = mysql_connect($hostname, $username, $password) or die("Unable to connecto to MySQL");
+
         
-        $selected = mysql_select_db($database, $con) or die("Could not select konto");
+    $selected = mysql_select_db("konto", $con) or die("Could not select konto");
+       $query = mysql_query("Select * FROM konto"); 
+        echo "kake";  
 
 ?>
