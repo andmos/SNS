@@ -4,7 +4,7 @@ function install() {
 sudo apt-get install -y $1 >/dev/null 2>&1 
     }
 
-programs="build-essential vim tor  ssh curl  htop git make traceroute tcptraceroute screen python-dev apache2 php5 mysql-server php5-mysql" 
+programs="build-essential vim tor  ssh curl  htop git make traceroute tcptraceroute screen python-dev apache2 php5 mysql-server php5-mysql php5-mysqlnd php-mdb2-driver-mysql mysql-libs" 
 
 echo "Installing web-server essentials..."
 sudo apt-get update >/dev/null 2>&1 
