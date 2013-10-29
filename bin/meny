@@ -4,7 +4,7 @@ echo "
 
     M E N Y
     1. Install LAMP - pakke
-    2. 
+    2. Restart apache  
     3. 
     4.
     5.
@@ -14,6 +14,7 @@ read choise
 
 case $choise in
     1) /vagrant/freshInstallWeb.bash ;;
+    2) sudo service apache2 restart ;; 
     *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
 
 esac 
