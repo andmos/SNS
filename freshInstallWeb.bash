@@ -30,5 +30,8 @@ rm -rf /var/www
 ln -fs /vagrant /var/www 
 
 sudo echo "Simple Network Server, v.0.1 'Glittertind'" >> /etc/motd.tail 
+sudo echo "-----------MENY for server options------------"  >> /etc/motd.tail
+
+echo "export PATH=$PATH:/vagrant/bin" >> .bashrc 
 
 echo "All done! go 'vagrant ssh'" 

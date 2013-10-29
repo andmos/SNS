@@ -1,0 +1,19 @@
+#! /bin/bash
+
+echo "
+
+    M E N Y
+    1. Install LAMP - pakke
+    2. 
+    3. 
+    4.
+    5.
+"
+echo -n "Valg: "
+read choise
+
+case $choise in
+    1) /vagrant/freshInstallWeb.bash ;;
+    *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
+
+esac 
