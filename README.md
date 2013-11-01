@@ -15,5 +15,6 @@ Contains basic WEB - installasion:
 - Apache2
 - PHP5
 - MySQL
+- Fail2ban
 
 
