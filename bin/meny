@@ -5,7 +5,7 @@ echo "
     M E N Y
     1. Install LAMP - pakke
     2. Restart apache  
-    3. Restart fail2ban 
+    3. Start fail2ban 
     4.
     5.
 "
