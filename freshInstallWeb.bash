@@ -6,7 +6,7 @@ sudo apt-get install -y $1 >/dev/null 2>&1
 
 function disableBoot() {
     sudo update-rc.d -f $1 defaults
-    update-rc.d $1 stop 80 0 1 2 3 4 5 6 
+    update-rc.d -f $1 2 3 4 5 
 }
     
 programs="build-essential vim ssh curl htop git make traceroute tcptraceroute fail2ban screen apache2 php5 mysql-server php5-mysql php5-mysqlnd php-mdb2-driver-mysql mysql-libs" 
