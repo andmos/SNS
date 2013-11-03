@@ -1,5 +1,6 @@
 #! /bin/bash
 
+echo "Logg files in /var/log/install.log"
 sudo touch /var/log/install.log
 
 function install() {
