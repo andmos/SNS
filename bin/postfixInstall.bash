@@ -21,7 +21,7 @@ _postfix_loopback_only() {
   echo "postfix postfix/mailname string localhost" | debconf-set-selections
   echo "postfix postfix/destinations string localhost.localdomain, localhost" | debconf-set-selections
 
-  _system_installs_install 'postfix'
+  _system_installs_install 'postfix' > /dev/null 2>&1
 
   sudo /usr/sbin/postconf -e "inet_interfaces = loopback-only"
 
