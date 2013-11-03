@@ -1,5 +1,7 @@
 #! /bin/bash
 
+sudo touch /var/log/install.log
+
 function install() {
 sudo apt-get install -y $1 >/dev/null 2>&1 
     }
