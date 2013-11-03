@@ -6,7 +6,7 @@ echo "
     1. Install LAMP - pakke
     2. Restart apache  
     3. Start fail2ban 
-    4.
+    4. Start postfix
     5.
 "
 echo -n "Valg: "
@@ -16,6 +16,7 @@ case $choise in
     1) /vagrant/freshInstallWeb.bash ;;
     2) sudo service apache2 restart ;; 
     3) sudo service fail2ban restart ;;  
+    4) sudo service postfix restart ;; 
     *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
 
 esac 

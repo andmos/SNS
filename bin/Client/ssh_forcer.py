@@ -23,9 +23,9 @@ try:
         ssh.load_system_host_keys()
         ssh.set_missing_host_key_policy(paramiko.MissingHostKeyPolicy())
  
-        try:
-                ssh.connect(IPADDRESS , port=SSHPORT, username=USERNAME, password=passwd)
-                print "Connected successfully. Password = "+passwd
+         try:
+            ssh.connect(IPADDRESS , port=SSHPORT, username=USERNAME, password=passwd)
+            print "Connected successfully. Password = "+passwd
             break
         except paramiko.AuthenticationException, error:
             print "Incorrect password: "+passwd

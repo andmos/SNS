@@ -7,7 +7,7 @@ function disableBoot(){
 }
 
 
-list="fail2ban"
+list="fail2ban postfix"
 
 echo "Disabling processes from startup: "
 for program in $list
