@@ -30,8 +30,6 @@ do
 done 
 
 
-
-
 echo "Symlincing /www folder to /Vagrant folder..."
 
 rm -rf /var/www
