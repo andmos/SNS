@@ -7,7 +7,7 @@ IPADDRESS = "127.0.0.1"
 USERNAME = "vagrant"
 SSHPORT=22
  
-
+# Run /vagrant/bin/pythonDependencies.bash to get all dependencies.
 # Generates a password of containing only digits with a size of PASSSIZE
 #
 ## To get other combinations pass the following values as the first argument to itertools.combinations
