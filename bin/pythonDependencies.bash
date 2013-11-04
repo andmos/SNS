@@ -13,6 +13,6 @@ do
     installF $program
 done
 
-sudo pip install paramiko >dev/null 2>&1
+sudo pip install paramiko >/dev/null 2>&1
 
 echo "All done!" 
