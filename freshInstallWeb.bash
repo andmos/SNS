@@ -7,7 +7,6 @@ function install() {
 sudo apt-get install -y $1 >/dev/null 2>&1 
     }
 
-
     
 programs="build-essential vim ssh curl htop git make traceroute tcptraceroute fail2ban screen apache2 php5 mysql-server php5-mysql php5-mysqlnd php-mdb2-driver-mysql mysql-libs " 
 
