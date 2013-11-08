@@ -13,7 +13,7 @@ echo -n "Valg: "
 read choise
 
 case $choise in
-    1) /vagrant/freshInstallWeb.bash ;;
+    1) /vagrant/freshInstallWeb ;;
     2) sudo service apache2 restart ;; 
     3) sudo service fail2ban restart ;;  
     4) sudo service postfix restart ;; 
