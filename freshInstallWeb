@@ -39,4 +39,4 @@ sudo echo "-----------MENY for server options------------"  >> /etc/motd.tail
 
 echo "export PATH=$PATH:/vagrant/bin" >> .bashrc 
 
-echo "All done! go 'vagrant ssh'" 
+echo "All done!" 
