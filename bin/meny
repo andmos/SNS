@@ -7,7 +7,7 @@ echo "
     2. Restart apache  
     3. Start fail2ban 
     4. Start postfix
-    5.
+    5. Start nettverksmonitor
 "
 echo -n "Valg: "
 read choise
@@ -17,6 +17,7 @@ case $choise in
     2) sudo service apache2 restart ;; 
     3) sudo service fail2ban restart ;;  
     4) sudo service postfix restart ;; 
+    5) /vagrant/bin/networkMonitoring ;; 
     *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
 
 esac 
