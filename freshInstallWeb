@@ -8,7 +8,7 @@ sudo apt-get install -y $1 >/dev/null 2>&1
     }
 
     
-programs="build-essential vim ssh curl htop git make traceroute tcptraceroute fail2ban screen apache2 php5 mysql-server php5-mysql php5-mysqlnd php-mdb2-driver-mysql mysql-libs " 
+programs="build-essential vim ssh curl htop iftop nethogs tmux git make traceroute tcptraceroute fail2ban screen apache2 php5 mysql-server php5-mysql php5-mysqlnd php-mdb2-driver-mysql mysql-libs " 
 
 echo "Installing web-server essentials..."
 sudo apt-get update >/dev/null 2>&1 
