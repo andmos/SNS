@@ -1,7 +1,7 @@
 #! /bin/bash 
 
 echo "Har man ikke satt restriksjoner på prosesser en bruker kan kjøre,"
-echo "er man ikke beskyttet mot fork bombs."
+echo "er man ikke beskyttet mot fork bombs, som 'fork while fork'."
 echo "Prosessen replikerer seg selv, helt til serveren går tom for resurser og dør."
 
 
