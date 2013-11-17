@@ -20,7 +20,7 @@ case $choise in
     3) sudo service fail2ban restart ;;  
     4) sudo service postfix restart ;; 
     5) /vagrant/bin/networkMonitoring ;; 
-    6) /vagrant/bin/forkBombMonitor ;; 
+    6) /vagrant/bin/forkBomb & htop ;; 
     *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
 
 esac 
