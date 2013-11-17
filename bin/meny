@@ -9,7 +9,7 @@ echo "
     4. Start postfix
     5. Start nettverksmonitor
     ANGREPSVALG: 
-    6. ForkBomb 
+    6. ForkBomb (OBS: dreper serveren FORT)  
 "
 echo -n "Valg: "
 read choise
@@ -20,7 +20,7 @@ case $choise in
     3) sudo service fail2ban restart ;;  
     4) sudo service postfix restart ;; 
     5) /vagrant/bin/networkMonitoring ;; 
-    6) /vagrant/bin/forkBomb & htop ;; 
+    6) /vagrant/bin/forkBombMonitor ;; 
     *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
 
 esac 
