@@ -1,4 +1,4 @@
-#!/bin/sh 
+#! /bin/bash 
 tmux new-session -d 'sudo nethogs'
 tmux split-window -v 'sudo iftop'
 #tmux split-window -h
