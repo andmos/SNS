@@ -7,7 +7,7 @@ echo "Prosessen replikerer seg selv, helt til serveren går tom for resurser og 
 
 sleep 10
 
-tmux new-session -d 'htop'
+tmux new-session -d 'top'
 tmux split-window -v '/vagrant/bin/forkBomb'
 #tmux split-window -h
 tmux -2 attach-session -d  

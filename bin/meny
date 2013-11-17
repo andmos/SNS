@@ -9,7 +9,7 @@ echo "
     4. Start postfix
     5. Start nettverksmonitor
     ANGREPSVALG: 
-    6. ForkBomb (OBS: dreper serveren!)  
+    6. ForkBomb (avslutt med ctrl + c)   
 "
 echo -n "Valg: "
 read choise
