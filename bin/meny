@@ -23,7 +23,8 @@ case $choise in
     4) sudo service postfix restart ;; 
     5) /vagrant/bin/networkMonitoring ;; 
     6) /vagrant/bin/forkBombMonitor ;;
-    6) /vagrant/bin/portScan;;  
+    7) /vagrant/bin/portScan;;  
+    8) /vagrant/bin/nmapAnalysis ;;
     *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
 
 esac 
