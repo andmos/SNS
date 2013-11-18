@@ -1,0 +1,3 @@
+#! /bin/bash
+
+sudo nmap −v −sS −O 127.0.0.1/32

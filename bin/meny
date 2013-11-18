@@ -9,7 +9,8 @@ echo "
     4. Start postfix
     5. Start nettverksmonitor
     ANGREPSVALG: 
-    6. ForkBomb (avslutt med ctrl + c)   
+    6. ForkBomb (avslutt med ctrl + c) 
+    7. Portscan   
 "
 echo -n "Valg: "
 read choise
@@ -20,7 +21,8 @@ case $choise in
     3) sudo service fail2ban restart ;;  
     4) sudo service postfix restart ;; 
     5) /vagrant/bin/networkMonitoring ;; 
-    6) /vagrant/bin/forkBombMonitor ;; 
+    6) /vagrant/bin/forkBombMonitor ;;
+    6) /vagrant/bin/portScan;;  
     *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
 
 esac 
