@@ -11,10 +11,12 @@ Created with Vagrant 1.2.7 and Virtualbox 4.2.16
 
 V 0.1 "Glittertind"
 ===  
-Contains basic WEB - installasion:
+Contains basic WEB - installasion and tools:
 - Apache2
 - PHP5
 - MySQL
 - Fail2ban
+- Nmap 
+- Different attack - scripts
 
 
