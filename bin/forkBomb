@@ -1,0 +1,8 @@
+#! /usr/bin/perl
+# Careful about this, use only if you know what you are doing  
+my $count = 0;
+while(1) {
+    fork(); 
+    print $count; 
+    $count++; 
+}

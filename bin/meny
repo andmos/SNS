@@ -1,0 +1,26 @@
+#! /bin/bash
+
+echo "
+
+    M E N Y
+    1. Install LAMP - pakke
+    2. Restart apache  
+    3. Start fail2ban 
+    4. Start postfix
+    5. Start nettverksmonitor
+    ANGREPSVALG: 
+    6. ForkBomb (avslutt med ctrl + c)   
+"
+echo -n "Valg: "
+read choise
+
+case $choise in
+    1) /vagrant/freshInstallWeb ;;
+    2) sudo service apache2 restart ;; 
+    3) sudo service fail2ban restart ;;  
+    4) sudo service postfix restart ;; 
+    5) /vagrant/bin/networkMonitoring ;; 
+    6) /vagrant/bin/forkBombMonitor ;; 
+    *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
+
+esac 
