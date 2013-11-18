@@ -10,7 +10,8 @@ echo "
     5. Start nettverksmonitor
     ANGREPSVALG: 
     6. ForkBomb (avslutt med ctrl + c) 
-    7. Portscan   
+    7. Portscan  
+    8. NMAP - Analyse 
 "
 echo -n "Valg: "
 read choise
