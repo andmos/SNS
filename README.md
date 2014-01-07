@@ -22,7 +22,6 @@ Contains basic WEB - installasion and tools:
 
 Install
 ===
-Dependencies: virtualbox and vagrant:
 
 	sudo apt-get install -y vagrant virtualbox
 	git clone https://github.com/andmos/SNS.git
