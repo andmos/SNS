@@ -1,0 +1,92 @@
+\documentclass{article}
+
+\usepackage{fullpage}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{graphicx} 
+% \marginparwidth = 35pt
+\usepackage[norsk]{babel}              % norske navn rundt omkring
+\usepackage[T1]{fontenc}              % gir tilgang til alle tegn i fonten
+\usepackage[utf8]{inputenc}         % utf8 rules them ALL
+\usepackage{parskip}
+\usepackage{multirow}
+\usepackage{listings}
+\usepackage[table]{xcolor}
+\usepackage{fancyhdr}
+
+% forside 
+\newcommand{\PageTitle}{Bruksanvisning}
+\newcommand{\DateDeadline}{\today}
+
+% SAKSMACRO
+\newcommand{\sak}[2]{\section*{Sak #1: #2}}
+
+% Bildemakro 
+\def\imagetop#1{\vtop{\null\hbox{#1}}}
+
+
+
+\begin{document}
+% Importert fra fil 
+\input{title/title.tex}
+
+
+
+\newpage
+.\vfill
+\begin{centering}
+\LARGE
+
+
+\textit{Et dokument om}  \\ 
+\ \textit {Simple Network Server -} \\ 
+\ \textit {Produktet}
+\vspace{12cm}
+\hspace{15cm}
+\newpage
+\end{centering} 
+\fancyhead[L]{
+Simple Network Server		\hfill			 Version: 1.0 \\
+Kravdokument 	\hfill			Date: \today  \\}
+\pagestyle{fancy}
+\setlength\headsep{30pt}
+
+
+\begin{table}[h] % http://en.wikibooks.org/wiki/LaTeX/Tables
+
+\caption{Revisjonshistorikk}
+	\begin{tabular}{| m{3cm} | m{1cm} | m{5cm} | m{4cm} |} 
+	\hline	
+	Dato & Versjon & Beskrivelse & Forfatter\\ 
+	\hline
+	 02/02/13> & 1.0 & Established requirements document & Andreas Mosti og Thomas Mowatt\\ 
+	\hline
+	<25/02/13> & 1.1 & Edited document according to the feedback & Andreas Mosti og Thomas Mowatt\\ 
+	\hline
+	<28/04/13> & 1.2 & Final version & Andreas Mosti og Thomas Mowatt\\ 
+	\hline
+	
+	\end{tabular}
+\end{table}
+
+\newpage
+
+\tableofcontents
+\newpage
+\section{Introduksjon}
+\subsection{Mål}
+Dette dokumentet er ment som bruksanvisning for Simple Network Server - produktet. Det vil inneholde alt som trengs for å kunne bruke løsningen fullt ut, inkludert avhengigheter og oppsett.
+\subsection{Omfang}
+Dette dokumentet omhandler bruk av hele systemet.
+\subsection{Definisjoner, akronymer, forkortelser}
+\begin{itemize}
+\item SSH: Secure Shell
+\end{itemize}
+\\
+\subsection{Referanser}
+\begin{itemize}
+\item Se fotnoter
+\end{itemize}
+\subsection{Innholdsoversikt}
+
+\end{document}
