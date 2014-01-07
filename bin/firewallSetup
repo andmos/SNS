@@ -1,1 +1,15 @@
 #! /bin/bash
+
+portList="22 80 3306 25"
+
+sudo ufw default deny incoming
+sudo ufw default allow outgoing
+
+
+for port in $portList
+do
+    sudo ufw allow $port/tcp
+done
+
+sudo ufw enable
+sudo ufw status verbose 
