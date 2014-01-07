@@ -11,5 +11,5 @@ do
     sudo ufw allow $port/tcp
 done
 
-sudo ufw enable
+sudo ufw enable -y
 sudo ufw status verbose 

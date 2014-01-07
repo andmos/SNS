@@ -1,0 +1,17 @@
+#! /bin/bash 
+echo "Allow or Deny [a|d]"
+read option
+
+
+if [[ $option == "a" ]] 
+then
+    choice="allow"
+else 
+    choice="deny"
+fi
+
+echo "Port to $choice: "
+read port 
+
+sudo ufw $choice $port/tcp
+sudo ufw enable
