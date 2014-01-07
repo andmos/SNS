@@ -13,9 +13,10 @@
 \usepackage{listings}
 \usepackage[table]{xcolor}
 \usepackage{fancyhdr}
+\usepackage{hyperref}
 
 % forside 
-\newcommand{\PageTitle}{Bruksanvisning}
+\newcommand{\PageTitle}{Detaljert Bruksanvisning}
 \newcommand{\DateDeadline}{\today}
 
 % SAKSMACRO
@@ -77,10 +78,13 @@ Kravdokument 	\hfill			Date: \today  \\}
 \subsection{Mål}
 Dette dokumentet er ment som bruksanvisning for Simple Network Server - produktet. Det vil inneholde alt som trengs for å kunne bruke løsningen fullt ut, inkludert avhengigheter og oppsett.
 \subsection{Omfang}
-Dette dokumentet omhandler bruk av hele systemet.
+Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (Debian - basert) og Mac OS X 10.9.
+\\ MERK: Prosjektet er tilgjengelig for Windows, men dette er ikke testet. 
 \subsection{Definisjoner, akronymer, forkortelser}
 \begin{itemize}
+\item SNS: Simple Network Server
 \item SSH: Secure Shell
+\item OS: Operating System
 \end{itemize}
 \\
 \subsection{Referanser}
@@ -88,5 +92,79 @@ Dette dokumentet omhandler bruk av hele systemet.
 \item Se fotnoter
 \end{itemize}
 \subsection{Innholdsoversikt}
+\section{Kort om Simple Network Server}
+Simple Network Server (SNS) er et ferdig, utvidbart virtuelt servermiljø basert på Ubuntu Linux som inneholder programmvare og verktøy tilpasset faget LV473D -Nettverkssikkerhet. 
+\section{Installasjon og grunnoppsett}
+For å ta i bruk Simple Network Server - oppsettet for første gang må man først installere to avhengigheter samt hente ned prosjektet. Vi begynner programvare som kreves:
+\subsection{Virtualbox}
+Siden SNS er en virtuell løsning, må virtualiseringsløsningen virtualbox tas i bruk. Virtualbox er gratis, og kan lastes ned via \url{https://www.virtualbox.org/wiki/Download_Old_Builds} for Linux og Mac. Pakken kan også lastes rett fra pakkerepoet til Debian / Ubuntu: \\ 
+\begin{lstlisting}
+sudo apt-get install virtualbox
+\end{lstlisting}
+\\
+Eller via macports\footnote{https://www.macports.org/} på OS X:
+\begin{lstlisting}
+sudo port install virtualbox
+\end{lstlisting}
+\\
+Testet og anbefalt versjon er virtualbox 4.1.18. 
+\subsection{Vagrant}
+Den neste nødvendige programmvaren er Vagrant. Vagrant er det virtuelle miljøet SNS benytter for å kjøre, og er ment for å lage virtuelle utviklermiljøer som fokuserer på å skape like utvikleroppsett for alle som jobber på et delt prosjekt, ved bruk av vagrant vil prosjektets oppsett se likt ut for alle som tar det i bruk. Som utviklerne av Vagrant selv beskriver det: 
+\begin{quote}
+''Vagrant is a tool for building complete development environments. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases development/production parity, and makes the ''works on my machine'' excuse a relic of the past.''
+\end{quote}
+For å installere Vagrant, last ned fra \url{http://downloads.vagrantup.com} for Linux og Mac. \\
+ Pakken kan også lastes rett fra pakkerepoet til Debian / Ubuntu: \\ 
+\begin{lstlisting}
+sudo apt-get install vagrant
+\end{lstlisting}
+\\
+Eller via macports på OS X:
+\begin{lstlisting}
+sudo port install vagrant
+\end{lstlisting}
+\\
+Testet og anbefalt versjon av vagrant er 1.2.7. 
+\subsection{Kildekode}
+Selve kildekoden til SNS hentes fra github for enklest installasjon: 
+
+\begin{lstlisting}
+git clone https://github.com/andmos/SNS
+\end{lstlisting}
+\\
+Nå kjøres prosjektet for første gang enkelt: 
+\begin{lstlisting}
+cd SNS/
+vagrant up
+\end{lstlisting}
+\\ \\
+Et virtuelt Ubuntu - image vil nå lastes ned (skjer kun ved første gangs kjøring) og prosjektfilene vil settes opp på dette imaget. 
+Skjermbildet ved første gangs innhenting av image ser slik ut: \\ \\
+\includegraphics[scale = 0.7]{vagrantFirstTime.png}
+\\ \\
+Dette imaget er det vagrant kaller en ''box''. Den fungerer som grunnimage, og nedlastning skjer som sagt kun ved første gangs bygg av prosjektet. Ved alle nyoppsett av systemet vil imaget brukes som grunn-OS for prosjektfilene til SNS, eller en såkalt ''sandbox''. Boksen kan lokaliseres i den skjulte mappa ''./vagrant.d'' på hjemmekatalogen til brukeren din.
+\section{Arbeidsflyt}
+Arbeidsflyten for produktet er veldig enkel. Når man står i prosjektets mappe, startes den virtuelle maskinen enkelt ved \\
+\begin{lstlisting}
+vagrant up
+\end{lstlisting}
+\\ 
+Og maskinen aksesseres via SSH ved
+\begin{lstlisting}
+vagrant ssh
+\end{lstlisting}
+\\
+Man blir da møtt av følgende skjermbilde: \\ \\
+\includegraphics[scale = 0.7]{vagrantSSH.png}
+\\ \\
+og kan nå bruke alle verktøyene SNS tilbyr enkelt via kommandolinja, hovedsaklig via ''meny'' kommandoen for enkelhets skyld. Det er vert å merke seg at SNS - maskinen er en fullverdig virtuell Ubuntu - maskin, så all Linux - funksjonalitet utenfor prosjektets verktøy kan fritt brukes og / eller installeres. \\ 
+Når man er ferdig med maskinen, avslutter man SSH - sesjonen og skriver: \\
+\begin{lstlisting}
+vagrant destroy
+\end{lstlisting}
+\\
+Alle endringer og oppsett på den virtuelle maskinen blir nå slettet. For neste gangs bruk av SNS, kjører man enkelt og greit ''vagrant up'' igjen, og prosjektet settes opp på nytt fra bunn av. 
+\section{Om kildekodens oppbyggning}
+<her kommer beskrivelse av mappestruktur>
 
 \end{document}
