@@ -18,5 +18,6 @@ Contains basic WEB - installasion and tools:
 - Fail2ban
 - Nmap 
 - Different attack - scripts
+- ufw
 
 
