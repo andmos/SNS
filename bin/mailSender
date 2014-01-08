@@ -7,7 +7,7 @@ read toAddress
 echo "Skriv inn avsenderadresse"
 read fromAddress
 subject="Mail fra Simple Network Server"
-message="/vagrant/resources/doc/MailMessage"
+message="/vagrant/resources/doc/MailMessage.txt"
 
 echo "Sender epost om 4 sekunder:"
 
