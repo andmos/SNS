@@ -1,0 +1,4 @@
+#! /bin/bash
+
+pass=$(< /vagrant/mysqlpw.txt)
+echo "SELECT * FROM konto" | mysql --user=root --password=$pass konto
