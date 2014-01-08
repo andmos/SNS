@@ -36,7 +36,7 @@ CREATE TABLE `konto` (
 
 LOCK TABLES `konto` WRITE;
 /*!40000 ALTER TABLE `konto` DISABLE KEYS */;
-INSERT INTO `konto` VALUES ('Thomas Mowatt',1111,25000, 'Passord1'),('Olav Nordmann',1112,35000,'Passord'),('Kari Nordmann',1113,45000,'Passord1'),('Birgitt Svendsen',1114,40000,'Passord1'),('Andreas Mosti',1115,47000,'Passord');
+INSERT INTO `konto` VALUES ('thomas',1111,25000, 'passord1'),('Olav Nordmann',1112,35000,'Passord'),('Kari Nordmann',1113,45000,'Passord1'),('Birgitt Svendsen',1114,40000,'Passord1'),('Andreas Mosti',1115,47000,'Passord');
 /*!40000 ALTER TABLE `konto` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
