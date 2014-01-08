@@ -3,14 +3,14 @@
 echo "
 
     M E N Y
-    1. Start brannmur  
+    1. Start firewall  
     2. Start webserver  
     3. Start fail2ban 
     4. Send Mail
-    5. Start nettverksmonitor
-    6 Se på database(tilknytning SQL - inject)
-    ANGREPSVALG: 
-    7. ForkBomb (avslutt med ctrl + c) 
+    5. Start Networkmonitor
+    6. Look at database
+    ATTACK OPTIONS: 
+    7. ForkBomb (exit with ctrl + c) 
     8. Portscan  
     9. NMAP - Analyse 
 "
@@ -27,6 +27,6 @@ case $choise in
     7) /vagrant/bin/forkBombMonitor ;;
     8) /vagrant/bin/portScan;;  
     9) /vagrant/bin/nmapAnalysis ;;
-    *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
+    *) echo "\"$choise\" not valid "; sleep 1 ;; 
 
 esac 
