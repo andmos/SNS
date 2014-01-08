@@ -1,0 +1,18 @@
+#! /bin/bash
+
+sudo service postfix restart > /dev/null
+
+echo "Skriv inn mottakeradressse"
+read toAddress
+echo "Skriv inn avsenderadresse"
+read fromAddress
+subject="Mail fra Simple Network Server"
+message="/vagrant/resources/doc/MailMessage"
+
+echo "Sender epost om 4 sekunder:"
+
+sleep 4
+
+sendEmail -f $fromAddress -t $toAddress -u $subject -o message-file=$message
+
+echo "for mer avansert bruk av mail, send via sendmail eller liknende."   

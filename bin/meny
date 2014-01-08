@@ -6,7 +6,7 @@ echo "
     1. Start brannmur  
     2. Start apache  
     3. Start fail2ban 
-    4. Start postfix
+    4. Send Mail
     5. Start nettverksmonitor
     ANGREPSVALG: 
     6. ForkBomb (avslutt med ctrl + c) 
@@ -20,7 +20,7 @@ case $choise in
     1) firewallSetup ;;
     2) sudo service apache2 restart ;; 
     3) sudo service fail2ban restart ;;  
-    4) sudo service postfix restart ;; 
+    4) /vagrant/bin/mailSender ;; 
     5) /vagrant/bin/networkMonitoring ;; 
     6) /vagrant/bin/forkBombMonitor ;;
     7) /vagrant/bin/portScan;;  
