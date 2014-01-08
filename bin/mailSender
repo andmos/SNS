@@ -2,7 +2,7 @@
 
 sudo service postfix restart > /dev/null
 
-echo "Skriv inn mottakeradressse"
+echo "Skriv inn mottakeradresse"
 read toAddress
 echo "Skriv inn avsenderadresse"
 read fromAddress

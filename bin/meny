@@ -4,14 +4,15 @@ echo "
 
     M E N Y
     1. Start brannmur  
-    2. Start apache  
+    2. Start webserver  
     3. Start fail2ban 
     4. Send Mail
     5. Start nettverksmonitor
+    6 Se på database(tilknytning SQL - inject)
     ANGREPSVALG: 
-    6. ForkBomb (avslutt med ctrl + c) 
-    7. Portscan  
-    8. NMAP - Analyse 
+    7. ForkBomb (avslutt med ctrl + c) 
+    8. Portscan  
+    9. NMAP - Analyse 
 "
 echo -n "Valg: "
 read choise
@@ -22,9 +23,10 @@ case $choise in
     3) sudo service fail2ban restart ;;  
     4) /vagrant/bin/mailSender ;; 
     5) /vagrant/bin/networkMonitoring ;; 
-    6) /vagrant/bin/forkBombMonitor ;;
-    7) /vagrant/bin/portScan;;  
-    8) /vagrant/bin/nmapAnalysis ;;
+    6) /vagrant/bin/showDatabase ;; 
+    7) /vagrant/bin/forkBombMonitor ;;
+    8) /vagrant/bin/portScan;;  
+    9) /vagrant/bin/nmapAnalysis ;;
     *) echo "\"$choise\" ikke gyldig "; sleep 1 ;; 
 
 esac 
