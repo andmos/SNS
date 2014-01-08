@@ -1,6 +1,6 @@
 #! /bin/bash
 echo "Installing postfix and mail - services..."
 sudo /vagrant/bin/postfixInstall >> /var/log/install.log
-
+sudo apt-get install sendemail -y >> /var/log/install.log
 
 echo "All done!" 
