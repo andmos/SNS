@@ -2,5 +2,5 @@
 echo "Installing postfix and mail - services..."
 sudo /vagrant/bin/postfixInstall >> /var/log/install.log
 #sudo apt-get install -y sendEmail >> /var/log/install.log
-sudo apt-get install -y sendEmail > /dev/null
+sudo apt-get install -y sendEmail > /dev/null 2>&1 
 echo "All done!" 
