@@ -1,0 +1,9 @@
+#! /bin/bash
+echo "Installing proxy services..."
+sudo apt-get install -y squid3 >> /var/log/install.log
+config=/etc/squid3/squid.conf
+
+sudo cat /vagrant/resources/squidRules/localnet >> $config
+sudo cat /vagrant/resources/squidRules/blockRules >> $config
+
+echo "All done!"
