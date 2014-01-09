@@ -1,0 +1,11 @@
+#! /bin/bash
+if [ -z "$(pgrep openvpnasa)" ]
+    then
+        sudo service openvpnasa start > /dev/null 
+    else
+        sudo service openvpnasa restart > /dev/null
+fi
+
+echo "Open in browser(use HTTPS) : https:// `curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"`:1886"
+
+
