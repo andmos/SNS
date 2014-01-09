@@ -1,6 +1,11 @@
 #! /bin/bash
 
-sudo service squid3 restart
+if [ -z "$(pgrep squid3)" ]
+  then
+     sudo service squid3 start > /dev/null
+  else
+     sudo service squid3 restart > /dev/null
+fi
 
 echo "Webproxy: `curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"`:3128" 
 

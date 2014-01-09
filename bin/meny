@@ -8,11 +8,12 @@ echo "
     3. Start fail2ban 
     4. Send Mail
     5. Start Networkmonitor
-    6. Look at database
+    6. Start Webproxy
+    7. Look at database
     ATTACK OPTIONS: 
-    7. ForkBomb (exit with ctrl + c) 
-    8. Portscan  
-    9. NMAP - Analyse 
+    8. ForkBomb (exit with ctrl + c) 
+    9. Portscan  
+    10. NMAP - Analyse 
 "
 echo -n "Valg: "
 read choise
@@ -23,10 +24,11 @@ case $choise in
     3) sudo service fail2ban restart ;;  
     4) /vagrant/bin/mailSender ;; 
     5) /vagrant/bin/networkMonitoring ;; 
-    6) /vagrant/bin/showDatabase ;; 
-    7) /vagrant/bin/forkBombMonitor ;;
-    8) /vagrant/bin/portScan;;  
-    9) /vagrant/bin/nmapAnalysis ;;
+    6) /vagrant/bin/proxy ;;
+    7) /vagrant/bin/showDatabase ;; 
+    8) /vagrant/bin/forkBombMonitor ;;
+    9) /vagrant/bin/portScan;;  
+    10) /vagrant/bin/nmapAnalysis ;;
     *) echo "\"$choise\" not valid "; sleep 1 ;; 
 
 esac 
