@@ -7,5 +7,5 @@ if [ -z "$(pgrep openvpnas)" ]
 fi
 
 echo "Open VPN in browser(use HTTPS) : https://`curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"`:1886"
-echo "Log in with users Kari or Ola, Password 'Passord1'" 
+echo "Log in with users vagrant, Password 'vagrant'" 
 
