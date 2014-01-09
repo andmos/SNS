@@ -1,5 +1,5 @@
 #! /bin/bash
-if [ -z "$(pgrep openvpnasa)" ]
+if [ -z "$(pgrep openvpnas)" ]
     then
         sudo service openvpnasa start > /dev/null 
     else
