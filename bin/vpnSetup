@@ -1,0 +1,12 @@
+#! /bin/bash
+
+pass=$(</vagrant/userpw.txt) 
+
+echo "Setting up OpenVPN and dependencies..."
+sudo wget http://swupdate.openvpn.org/as/openvpn-as-1.8.4-Ubuntu10.i386.deb
+sudo dpkg -i openvpn-as-1.8.4-Ubuntu10.i386.deb
+
+echo $pass | passwd > /dev/null 2>&1 
+sudo rm openvpn-as-1.8.4-Ubuntu10.i386.deb 
+
+echo "All done!"

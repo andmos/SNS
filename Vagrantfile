@@ -10,6 +10,7 @@ Vagrant::Config.run do |config|
   config.vm.provision :shell, :path => "bin/databaseSetup"
   config.vm.provision :shell, :path => "bin/mailInstall"
   config.vm.provision :shell, :path => "bin/proxySetup"
+  config.vm.provision :shell, :path => "bin/vpnSetup" 
   config.vm.provision :shell, :path => "bin/pythonDependencies" 
   config.vm.provision :shell, :path => "bin/disableBoot" 
   config.vm.provision :shell, :inline => "echo All done! Run 'vagrant ssh'" 
@@ -18,5 +19,5 @@ Vagrant::Config.run do |config|
   config.vm.forward_port 3306, 6612
   config.vm.forward_port 25, 2525 
   config.vm.forward_port 3128, 3128 
-
+  config.vm.forward_port 943, 943
 end
