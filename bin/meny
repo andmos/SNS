@@ -9,11 +9,12 @@ echo "
     4. Send Mail
     5. Start Networkmonitor
     6. Start Webproxy
-    7. Look at database
+    7. Start VPN-Server
+    8. Look at database
     ATTACK OPTIONS: 
-    8. ForkBomb (exit with ctrl + c) 
-    9. Portscan  
-    10. NMAP - Analyse 
+    9. ForkBomb (exit with ctrl + c) 
+    10. Portscan  
+    11. NMAP - Analyse 
 "
 echo -n "Valg: "
 read choise
@@ -25,10 +26,11 @@ case $choise in
     4) /vagrant/bin/mailSender ;; 
     5) /vagrant/bin/networkMonitoring ;; 
     6) /vagrant/bin/proxy ;;
-    7) /vagrant/bin/showDatabase ;; 
-    8) /vagrant/bin/forkBombMonitor ;;
-    9) /vagrant/bin/portScan;;  
-    10) /vagrant/bin/nmapAnalysis ;;
+    7) /vagrant/bin/vpn ;;  
+    8) /vagrant/bin/showDatabase ;; 
+    9) /vagrant/bin/forkBombMonitor ;;
+    10) /vagrant/bin/portScan;;  
+    11) /vagrant/bin/nmapAnalysis ;;
     *) echo "\"$choise\" not valid "; sleep 1 ;; 
 
 esac 
