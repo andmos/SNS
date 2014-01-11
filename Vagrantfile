@@ -6,7 +6,7 @@ Vagrant::Config.run do |config|
 # To speed up the process under testing, just comment out unwanted modules
   config.vm.box_url = "http://files.vagrantup.com/precise32.box" 
   config.vm.provision :shell, :path => "freshInstallWeb"
-  config.vm.provision :shell, :path => "bin/addSystemUsers" 
+  config.vm.provision :shell, :path => "bin/usersSetup" 
   config.vm.provision :shell, :path => "bin/databaseSetup"
   config.vm.provision :shell, :path => "bin/mailInstall"
   config.vm.provision :shell, :path => "bin/proxySetup"
