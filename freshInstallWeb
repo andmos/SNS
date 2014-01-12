@@ -34,7 +34,7 @@ rm -rf /var/www
 ln -fs /vagrant /var/www 
 
 echo "Setting up motd..." 
-sudo echo "Simple Network Server, v1.0 'Glittertind'" >> /etc/motd.tail 
+sudo echo "Simple Network Server, v 1.0 'Glittertind'" >> /etc/motd.tail 
 sudo /vagrant/bin/eksternip >> /etc/motd.tail
 sudo echo "-----------MENY for server options------------"  >> /etc/motd.tail
 
