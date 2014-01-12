@@ -38,6 +38,11 @@ sudo echo "Simple Network Server, v 1.0 'Glittertind'" >> /etc/motd.tail
 sudo /vagrant/bin/eksternip >> /etc/motd.tail
 sudo echo "-----------MENY for server options------------"  >> /etc/motd.tail
 
+echo "Copying dotfiles:"
+echo "vimrc"
+cp /vagrant/resources/dotfiles/.vimrc /home/vagrant
+echo "All done!"
+
 echo "Exporting bin - folder to path..."
 echo "export PATH=$PATH:/vagrant/bin" >> .bashrc 
 
