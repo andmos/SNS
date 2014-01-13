@@ -1,0 +1,8 @@
+#! /bin/bash
+pass=$(</vagrant/userpw.txt)
+
+echo "Adding users to the system..." 
+sudo useradd -m -p $pass Ola
+sudo useradd -m -p $pass Kari
+
+echo "All done!"

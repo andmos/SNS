@@ -89,6 +89,7 @@ Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (
 \\
 \subsection{Referanser}
 \begin{itemize}
+\item{Mitchell Hashimoto, Vagrant: Up and Running}
 \item Se fotnoter
 \end{itemize}
 \subsection{Innholdsoversikt}
@@ -125,6 +126,7 @@ sudo port install vagrant
 \end{lstlisting}
 \\
 Testet og anbefalt versjon av vagrant er 1.2.7. 
+\footnote{Vagrant: Up and Running av vagrantskaper Mitchell Hashimoto kan eventuelt brukes som støttelitteratur. }
 \subsection{Kildekode}
 Selve kildekoden til SNS hentes fra github for enklest installasjon: 
 
@@ -142,7 +144,11 @@ Et virtuelt Ubuntu - image vil nå lastes ned (skjer kun ved første gangs kjør
 Skjermbildet ved første gangs innhenting av image ser slik ut: \\ \\
 \includegraphics[scale = 0.7]{vagrantFirstTime.png}
 \\ \\
-Dette imaget er det vagrant kaller en ''box''. Den fungerer som grunnimage, og nedlastning skjer som sagt kun ved første gangs bygg av prosjektet. Ved alle nyoppsett av systemet vil imaget brukes som grunn-OS for prosjektfilene til SNS, eller en såkalt ''sandbox''. Boksen kan lokaliseres i den skjulte mappa ''./vagrant.d'' på hjemmekatalogen til brukeren din.
+Dette imaget er det vagrant kaller en ''box''. Den fungerer som grunnimage, og nedlastning skjer som sagt kun ved første gangs bygg av prosjektet. Ved alle nyoppsett av systemet vil imaget brukes som grunn-OS for prosjektfilene til SNS, eller en såkalt ''sandbox''. Boksen kan lokaliseres i den skjulte mappa ''./vagrant.d'' på hjemmekatalogen til brukeren din. \\ \\
+For å sjekke at den virtuelle maskinen fungerer som den skal, gå til \url{http://localhost:8080/} fra nettleseren din. Du vil da få opp denne siden:
+\\ \\
+\includegraphics[scale = 0.7]{vagrantWorks.png} 
+\\ \\
 \section{Arbeidsflyt}
 Arbeidsflyten for produktet er veldig enkel. Når man står i prosjektets mappe, startes den virtuelle maskinen enkelt ved \\
 \begin{lstlisting}
@@ -163,7 +169,7 @@ Når man er ferdig med maskinen, avslutter man SSH - sesjonen og skriver: \\
 vagrant destroy
 \end{lstlisting}
 \\
-Alle endringer og oppsett på den virtuelle maskinen blir nå slettet. For neste gangs bruk av SNS, kjører man enkelt og greit ''vagrant up'' igjen, og prosjektet settes opp på nytt fra bunn av. 
+Alle endringer og oppsett på den virtuelle maskinen blir nå slettet. Har man foreks. rotet det til med filer, angrepet serveren slik at den ikke lengre kan brukes fullstendig eller liknende, er ikke det noe problem. Nåværende system slettes. For neste gangs bruk av SNS, kjører man enkelt og greit ''vagrant up'' igjen, og prosjektet settes opp på nytt fra bunn av. 
 \section{Om kildekodens oppbyggning}
 <her kommer beskrivelse av mappestruktur>
 

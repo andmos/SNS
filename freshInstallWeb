@@ -7,10 +7,9 @@ function install() {
 sudo apt-get install -y $1 >/dev/null 2>&1 
     }
     
-programs="build-essential vim nmap ssh curl htop iftop nethogs tmux git make traceroute tcptraceroute fail2ban screen apache2 php5
+programs="build-essential vim nmap ssh curl htop iftop nethogs tmux make traceroute tcptraceroute fail2ban screen apache2 php5
 mysql-server php5-mysql php5-mysqlnd php-mdb2-driver-mysql mysql-libs software-properties-common" 
  
-
 echo "Installing web-server essentials..."
 
 sudo apt-get update >/dev/null 2>&1 
@@ -35,10 +34,16 @@ rm -rf /var/www
 ln -fs /vagrant /var/www 
 
 echo "Setting up motd..." 
-sudo echo "Simple Network Server, v.0.1 'Glittertind'" >> /etc/motd.tail 
+sudo echo "Simple Network Server, v 1.0 'Glittertind'" >> /etc/motd.tail 
 sudo /vagrant/bin/eksternip >> /etc/motd.tail
 sudo echo "-----------MENY for server options------------"  >> /etc/motd.tail
- 
+
+echo "Copying dotfiles:"
+echo "vimrc"
+cp /vagrant/resources/dotfiles/.vimrc /home/vagrant
+echo "All done!"
+
+echo "Exporting bin - folder to path..."
 echo "export PATH=$PATH:/vagrant/bin" >> .bashrc 
 
 echo "All done!" 

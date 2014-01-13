@@ -1,0 +1,11 @@
+#! /bin/bash
+if [ -z "$(pgrep openvpnas)" ]
+    then
+        sudo service openvpnas start > /dev/null 
+    else
+        sudo service openvpnas restart > /dev/null
+fi
+
+echo "Open VPN in browser(use HTTPS) : https://`curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"`:1886"
+echo "Log in with users vagrant, Password 'vagrant'" 
+
