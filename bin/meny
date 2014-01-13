@@ -4,7 +4,7 @@ echo "
 
     M E N Y
     1. Start firewall  
-    2. Start webserver  
+    2. Start apachemonitor  
     3. Start fail2ban 
     4. Send Mail
     5. Start Networkmonitor
@@ -21,7 +21,7 @@ read choise
 
 case $choise in
     1) firewallSetup ;;
-    2) sudo service apache2 restart ;; 
+    2) /vagrant/bin/apacheLogMonitor ;; 
     3) sudo service fail2ban restart ;;  
     4) /vagrant/bin/mailSender ;; 
     5) /vagrant/bin/networkMonitoring ;; 
