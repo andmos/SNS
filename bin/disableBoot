@@ -7,7 +7,7 @@ function disableBoot(){
 }
 
 
-list="fail2ban postfix ufw squid3 openvpnas"
+list="fail2ban postfix ufw squid3 openvpnas freeradius"
 
 echo "Disabling processes from startup..."
 for program in $list
