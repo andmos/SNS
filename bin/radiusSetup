@@ -1,0 +1,11 @@
+#! /bin/bash
+echo "Installing radius"
+sudo apt-get install freeradius -y > /dev/null 2>&1 
+
+sudo rm /etc/freeradius/clients.conf
+sudo rm /etc/freeradius/users
+
+sudo cp /vagrant/resources/radius/clients.conf /etc/freeradius/
+sudo cp /vagrant/resoruces/radius/users /etc/freeradius/
+
+echo "All done!"
