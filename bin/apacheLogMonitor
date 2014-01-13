@@ -1,0 +1,6 @@
+#! /bin/bash 
+tmux new-session -d '/vagrant/bin/apacheAccessLog'
+tmux split-window -v '/vagrant/bin/apacheErrorLog'
+#tmux split-window -h
+
+tmux -2 attach-session -d  
