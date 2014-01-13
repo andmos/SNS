@@ -33,3 +33,4 @@ Install
 
 And its up!
 
+Be aware, all code in this project is for demonstration purpose only. Some of the code may do harm, use it carefully!
