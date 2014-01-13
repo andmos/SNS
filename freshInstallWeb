@@ -8,7 +8,7 @@ sudo apt-get install -y $1 >/dev/null 2>&1
     }
     
 programs="build-essential vim nmap ssh curl htop iftop nethogs tmux make traceroute tcptraceroute fail2ban screen apache2 php5
-mysql-server php5-mysql php5-mysqlnd php-mdb2-driver-mysql mysql-libs software-properties-common" 
+mysql-server php5-mysql php5-mysqlnd php-mdb2-driver-mysql mysql-libs software-properties-common ccze" 
  
 echo "Installing web-server essentials..."
 
@@ -41,7 +41,7 @@ sudo echo "-----------MENY for server options------------"  >> /etc/motd.tail
 echo "Copying dotfiles:"
 echo "vimrc"
 cp /vagrant/resources/dotfiles/.vimrc /home/vagrant
-echo "All done!"
+
 
 echo "Exporting bin - folder to path..."
 echo "export PATH=$PATH:/vagrant/bin" >> .bashrc 
