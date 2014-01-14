@@ -1,19 +1,13 @@
 #! /bin/bash
 
-#------------THIS FILE NEEDS WORKING ON, NOT FINNISHED.
+echo "Setting up Snort and rules..."
 
-pass=$(</vagrant/mysqlpw.txt)
+sudo debconf-set-selections <<< "snort snort/address_range string 10.0.2.15/32"
+sudo apt-get install snort
 
-SNORTIP=$(/sbin/ifconfig eth0 | grep 'inet addr:' | cut -d: -f2| cut -d' ' -f1)
+sudo rm /etc/snort/rules/*
+sudo cp /vagrant/resources/snortRules/* /etc/snort/rules/
 
-echo "Setting up  snort-database:"
+sudo service snort restart
 
-
-mysql -u root --password=$pass -e 'create database snort'
-
-sudo apt-get install snort-mysql -y
-
-cd /usr/share/doc/snort-mysql/
-zcat create_mysql.gz | mysql -u root -h localhost --password=$pass  snort
-
-echo "Standard Snort-mysql DB configured" 
+echo "All done!"
