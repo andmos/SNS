@@ -8,6 +8,6 @@ sudo apt-get install snort -y > /dev/null 2>&1
 sudo rm /etc/snort/rules/*
 sudo cp /vagrant/resources/snortRules/* /etc/snort/rules/
 
-sudo service snort restart
+sudo service snort restart > /dev/null 2>&1 
 
 echo "All done!"
