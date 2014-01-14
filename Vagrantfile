@@ -12,6 +12,7 @@ Vagrant::Config.run do |config|
   config.vm.provision :shell, :path => "bin/proxySetup"
   config.vm.provision :shell, :path => "bin/vpnSetup" 
   config.vm.provision :shell, :path => "bin/radiusSetup"
+  config.vm.provision :shell, :path => "bin/snortSetup"
   config.vm.provision :shell, :path => "bin/pythonDependencies" 
   config.vm.provision :shell, :path => "bin/disableBoot" 
   config.vm.provision :shell, :inline => "echo All done! Run 'vagrant ssh'" 
