@@ -1,0 +1,3 @@
+#! /bin/bash
+
+echo "snort is currently listening to traffic on internal IP, 10.0.2.15"
