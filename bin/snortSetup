@@ -3,7 +3,7 @@
 echo "Setting up Snort and rules..."
 
 sudo debconf-set-selections <<< "snort snort/address_range string 10.0.2.15/32"
-sudo apt-get install snort -y
+sudo apt-get install snort -y > /dev/null 2>&1
 
 sudo rm /etc/snort/rules/*
 sudo cp /vagrant/resources/snortRules/* /etc/snort/rules/
