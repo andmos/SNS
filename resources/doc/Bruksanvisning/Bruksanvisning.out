@@ -5,9 +5,10 @@
 \BOOKMARK [2][-]{subsection.1.4}{Referanser}{section.1}% 5
 \BOOKMARK [2][-]{subsection.1.5}{Innholdsoversikt}{section.1}% 6
 \BOOKMARK [1][-]{section.2}{Kort om Simple Network Server}{}% 7
-\BOOKMARK [1][-]{section.3}{Installasjon og grunnoppsett}{}% 8
-\BOOKMARK [2][-]{subsection.3.1}{Virtualbox}{section.3}% 9
-\BOOKMARK [2][-]{subsection.3.2}{Vagrant}{section.3}% 10
-\BOOKMARK [2][-]{subsection.3.3}{Kildekode}{section.3}% 11
-\BOOKMARK [1][-]{section.4}{Arbeidsflyt}{}% 12
-\BOOKMARK [1][-]{section.5}{Om kildekodens oppbyggning}{}% 13
+\BOOKMARK [1][-]{section.3}{Testoppsett}{}% 8
+\BOOKMARK [1][-]{section.4}{Installasjon og grunnoppsett}{}% 9
+\BOOKMARK [2][-]{subsection.4.1}{Virtualbox}{section.4}% 10
+\BOOKMARK [2][-]{subsection.4.2}{Vagrant}{section.4}% 11
+\BOOKMARK [2][-]{subsection.4.3}{Kildekode}{section.4}% 12
+\BOOKMARK [1][-]{section.5}{Arbeidsflyt}{}% 13
+\BOOKMARK [1][-]{section.6}{Om kildekodens oppbyggning}{}% 14
