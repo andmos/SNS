@@ -2,7 +2,7 @@
 pass=$(</vagrant/userpw.txt)
 
 echo "Adding users to the system..." 
-sudo useradd -m -p $pass Ola
-sudo useradd -m -p $pass Kari
+sudo useradd -m -p $pass Ola > /dev/null 2>&1 
+sudo useradd -m -p $pass Kari > /dev/null 2>&1 
 
 echo "All done!"
