@@ -6,7 +6,7 @@ sudo useradd -m -p $pass Ola
 sudo useradd -m -p $pass Kari
 
 #fixing password - bug
-sudo /vagrant/bin/passwordChanger Ola $pass
-sudo /vagrant/bin/passwordChanger Kari $pass
+sudo /vagrant/bin/passwordChanger Ola $pass > /var/log/SimpleNetworkServer.log
+sudo /vagrant/bin/passwordChanger Kari $pass > /var/log/SimpleNetworkServer.log
 
 echo "All done!"
