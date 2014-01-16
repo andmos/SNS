@@ -25,7 +25,7 @@ Contains installasiona and configuration of:
 Install
 ===
 
-	sudo apt-get install -y vagrant virtualbox
+	sudo apt-get install -y virtualbox vagrant 
 	git clone https://github.com/andmos/SNS.git
 	cd SNS/
 	vagrant up
