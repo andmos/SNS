@@ -19,8 +19,10 @@ Contains installasiona and configuration of:
 - Nmap 
 - Different attack - scripts
 - ufw
-- squid3
-- openVPN
+- Squid3
+- OpenVPN
+- Snort
+- FreeRadius
 
 Install
 ===
