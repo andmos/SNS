@@ -136,6 +136,7 @@ sudo port install vagrant
 \\
 Testet og anbefalt versjon av vagrant er 1.2.7. 
 \footnote{Vagrant: Up and Running av vagrantskaper Mitchell Hashimoto kan eventuelt brukes som støttelitteratur. }
+
 \subsection{Kildekode}
 Selve kildekoden til SNS hentes fra github for enklest installasjon: 
 
@@ -158,6 +159,25 @@ For å sjekke at den virtuelle maskinen fungerer som den skal, gå til \url{http
 \\ \\
 \includegraphics[scale = 0.7]{vagrantWorks.png} 
 \\ \\
+
+\subsection{Kjente problemer}
+Den eneste feilen som har oppstått under testing er at versjonene av Virtualbox og Vagrant som ligger i repoene har vært ikke-kompatible med hverandre. Skulle dette oppstå ved oppsett, må man manuelt laste ned Virtualbox versjon 4.1.18 og legge denne inn. For 32 bit: 
+\begin{lstlisting}
+wget http://download.virtualbox.org/virtualbox/4.1.18/
+virtualbox-4.1_4.1.18-78361~Ubuntu~precise_i386.deb
+sudo dpkg -i virtualbox-4.1_4.1.18-78361~Ubuntu~precise_i386.deb
+\end{lstlisting}
+Og for 64 bit:
+\\ 
+\begin{lstlisting}
+wget http://download.virtualbox.org/virtualbox/4.1.18/
+virtualbox-4.1_4.1.18-78361~Ubuntu~precise_amd64.deb
+sudo dpkg -i virtualbox-4.1_4.1.18-78361~Ubuntu~precise_amd64.deb
+\end{lstlisting}
+\\ 
+Merk: Dette er pakker for Ubuntu 12.04 LTS. For andre versjoner av OSX / Linux, last ned fra \\
+\url{https://www.virtualbox.org/wiki/Download_Old_Builds_4_1}
+
 \section{Arbeidsflyt}
 Arbeidsflyten for produktet er veldig enkel. Når man står i prosjektets mappe, startes den virtuelle maskinen enkelt ved \\
 \begin{lstlisting}
@@ -179,6 +199,7 @@ vagrant destroy
 \end{lstlisting}
 \\
 Alle endringer og oppsett på den virtuelle maskinen blir nå slettet. Har man foreks. rotet det til med filer, angrepet serveren slik at den ikke lengre kan brukes fullstendig eller liknende, er ikke det noe problem. Nåværende system slettes. For neste gangs bruk av SNS, kjører man enkelt og greit ''vagrant up'' igjen, og prosjektet settes opp på nytt fra bunn av. 
+
 \section{Om kildekodens oppbyggning}
 <her kommer beskrivelse av mappestruktur>
 
