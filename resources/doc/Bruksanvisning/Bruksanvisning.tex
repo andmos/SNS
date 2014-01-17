@@ -16,7 +16,7 @@
 \usepackage{hyperref}
 
 % forside 
-\newcommand{\PageTitle}{Detaljert Bruksanvisning}
+\newcommand{\PageTitle}{Detaljert Brukermanual}
 \newcommand{\DateDeadline}{\today}
 
 % SAKSMACRO
@@ -76,7 +76,7 @@ Kravdokument 	\hfill			Date: \today  \\}
 \newpage
 \section{Introduksjon}
 \subsection{Mål}
-Dette dokumentet er ment som bruksanvisning for Simple Network Server - produktet. Det vil inneholde alt som trengs for å kunne bruke løsningen fullt ut, inkludert avhengigheter og oppsett.
+Dette dokumentet er ment som brukermanual for Simple Network Server - produktet. Det vil inneholde alt som trengs for å kunne bruke løsningen fullt ut, inkludert avhengigheter og oppsett.
 \subsection{Omfang}
 Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (Debian - basert) og Mac OS X 10.9.
 \\ MERK: Prosjektet er tilgjengelig for Windows, men dette er ikke testet. 
@@ -90,6 +90,7 @@ Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (
 \subsection{Referanser}
 \begin{itemize}
 \item{Mitchell Hashimoto, Vagrant: Up and Running}
+\item Visjonsdokument, Kravdokument og Arkitekturdokument
 \item Se fotnoter
 \end{itemize}
 \subsection{Innholdsoversikt}
@@ -160,7 +161,7 @@ For å sjekke at den virtuelle maskinen fungerer som den skal, gå til \url{http
 \includegraphics[scale = 0.7]{vagrantWorks.png} 
 \\ \\
 
-\subsection{Kjente problemer}
+\subsection{Kjente oppsettsproblemer}
 Den eneste feilen som har oppstått under testing er at versjonene av Virtualbox og Vagrant som ligger i repoene har vært ikke-kompatible med hverandre. Skulle dette oppstå ved oppsett, må man manuelt laste ned Virtualbox versjon 4.1.18 og legge denne inn. For 32 bit: 
 \begin{lstlisting}
 wget http://download.virtualbox.org/virtualbox/4.1.18/
@@ -175,9 +176,26 @@ virtualbox-4.1_4.1.18-78361~Ubuntu~precise_amd64.deb
 sudo dpkg -i virtualbox-4.1_4.1.18-78361~Ubuntu~precise_amd64.deb
 \end{lstlisting}
 \\ 
-Merk: Dette er pakker for Ubuntu 12.04 LTS. For andre versjoner av OSX / Linux, last ned fra \\
+Merk: Dette er pakker for Ubuntu 12.04 LTS. For andre versjoner av OS X / Linux, last ned fra \\
 \url{https://www.virtualbox.org/wiki/Download_Old_Builds_4_1}
-
+\\ \\ \\
+Skulle problemer med Vagrant oppstå, kan også denne installeres utenom pakkesystemet. Da kjøres følgende (32 bit): 
+\begin{lstlisting}
+wget http://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/
+vagrant_1.2.7_i686.deb 
+sudo dpkg -i vagrant_1.2.7_i686.deb 
+\end{lstlisting}
+\\
+Og for 64 bit - versjonen: 
+\begin{lstlisting}
+wget http://files.vagrantup.com/packages/7ec0ee1d00a916f80b109a298bab08e391945243/
+vagrant_1.2.7_x86_64.deb
+sudo dpkg -i vagrant_1.2.7_x86_64.deb
+\end{lstlisting}
+\\ 
+Igjen, dette er pakker for Ubuntu. For andre distroer og OS X, besøk \\
+\url{https://downloads.vagrantup.com/tags/v1.2.7} \\ \\
+Erfaringer under testing har knyttet kjente problemer opp mot Virtualbox, så begynn med den.
 \section{Arbeidsflyt}
 Arbeidsflyten for produktet er veldig enkel. Når man står i prosjektets mappe, startes den virtuelle maskinen enkelt ved \\
 \begin{lstlisting}
