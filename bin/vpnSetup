@@ -3,7 +3,7 @@
 pass=$(</vagrant/userpw.txt) 
 
 echo "Setting up OpenVPN and dependencies..."
-sudo wget http://swupdate.openvpn.org/as/openvpn-as-1.8.4-Ubuntu10.i386.deb > /var/log/SimoleNetworkServer.log
+sudo wget http://swupdate.openvpn.org/as/openvpn-as-1.8.4-Ubuntu10.i386.deb > /dev/null 2>&1
 
 sudo dpkg -i openvpn-as-1.8.4-Ubuntu10.i386.deb > /var/log/SimpleNetworkServer.log
 
