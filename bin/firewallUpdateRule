@@ -15,4 +15,4 @@ read port
 
 sudo ufw $choice $port/tcp
 sudo ufw enable
-sudo ufw status verbose
+sudo ufw status verbose | ccze -A
