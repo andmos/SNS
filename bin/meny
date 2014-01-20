@@ -5,17 +5,18 @@ echo "
     M E N Y
     1. Start firewall  
     2. Start apachemonitor  
-    3. Start fail2ban 
+    3. Start fail2ban (IPS service) 
     4. Send Mail
     5. Start Networkmonitor
     6. Start Webproxy
     7. Start VPN-Server
     8. Start RADIUS
-    9. Look at database
+    9. Start Snort (IDS service)
+    10. Look at database
     ATTACK OPTIONS: 
-    10. ForkBomb (exit with ctrl + c) 
-    11. Portscan  
-    12. NMAP - Analyse 
+    11. ForkBomb (exit with ctrl + c) 
+    12. Portscan  
+    13. NMAP - Analyse 
 "
 echo -n "Valg: "
 read choise
@@ -29,10 +30,11 @@ case $choise in
     6) /vagrant/bin/proxy ;;
     7) /vagrant/bin/vpn ;;  
     8) /vagrant/bin/radius ;;
-    9) /vagrant/bin/showDatabase ;; 
-    10) /vagrant/bin/forkBombMonitor ;;
-    11) /vagrant/bin/portScan;;  
-    12) /vagrant/bin/nmapAnalysis ;;
+    9) /vagrant/bin/snortMonitor ;; 
+    10) /vagrant/bin/showDatabase ;; 
+    11) /vagrant/bin/forkBombMonitor ;;
+    12) /vagrant/bin/portScan;;  
+    13) /vagrant/bin/nmapAnalysis ;;
     *) echo "\"$choise\" not valid "; sleep 1 ;; 
 
 esac
