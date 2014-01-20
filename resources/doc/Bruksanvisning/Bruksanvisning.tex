@@ -48,7 +48,7 @@
 \end{centering} 
 \fancyhead[L]{
 Simple Network Server		\hfill			 Version: 1.0 \\
-Kravdokument 	\hfill			Date: \today  \\}
+Detaljert Brukermanual 	\hfill			Date: \today  \\}
 \pagestyle{fancy}
 \setlength\headsep{30pt}
 
@@ -85,6 +85,7 @@ Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (
 \item SNS: Simple Network Server
 \item SSH: Secure Shell
 \item OS: Operating System
+\item LAMP: Linux Apache MySql PHP
 \end{itemize}
 \\
 \subsection{Referanser}
@@ -217,7 +218,41 @@ vagrant destroy
 \end{lstlisting}
 \\
 Alle endringer og oppsett på den virtuelle maskinen blir nå slettet. Har man foreks. rotet det til med filer, angrepet serveren slik at den ikke lengre kan brukes fullstendig eller liknende, er ikke det noe problem. Nåværende system slettes. For neste gangs bruk av SNS, kjører man enkelt og greit ''vagrant up'' igjen, og prosjektet settes opp på nytt fra bunn av. 
-
+\section{Gjennomgang av nåværende funksjonalitet}
+For å benytte seg av funksjonaliteten som er bygget inn i SNS har vi laget en oppstartsmeny som enkelt og greit skal kunne guide deg til den funksjonaliteten du er ute etter (se kravdok). Du kommer til denne menyen når SNS er startet, og ''vagrant ssh'' er kjørt. Ved så å skrive ''meny'' fra kommandolinja, blir man møtt av følgende vindu: 
+\\ \\
+\includegraphics[scale=0.7]{meny.png} 
+\\ \\
+I dette avsnittet går vi gjennom hver av disse valgene, med forslag til bruk og utvidelse.  
+\subsection{1: Start firewall}
+Det første valget starter et skript som er tilpassed demonostrasjon av brannmur. \\ Her er funksjonaliteten ganske enkel: et skript starte brannmurprogrammvaren (ufw, abstraksjonslag oppå iptables) og laster inn en på forhånd oppsatt konfigurasjon som låser ned serveren, med unntak av portene som aktivt brukes i SNS som åpnes. Når skriptet er ferdig, dukker en oversikt over de åpne portene opp. 
+\\ \\
+\includegraphics[scale = 0.7]{firewall.png}
+\\ \\ 
+Som vi ser av bildet, er de portene som er markert som åpne inn kun de som er ibruk av Simple Network Server. 
+For å demonstrere brannmurendringern, kan skriptet 'firewallUpdateRule' kjøres rett fra kommandolinja. Dette skriptet er skrevet for enkelt og greit å gjøre endringer i aksesspolicyen til portene på serveren. Du velger om en port skal åpnes eller lukkes, og får da ny oversikt over portene på serveren. Dette for å lett kunne demonstrere brannmurens virkemåte. Eksemplel på bruk kan være å stenge port 80, for så å besøkle \url{http://localhost:8080} og se at aksessen nå er sperret. Anne bruk kan være å kjøre portscanner mot serverens adresse og se på åpne porter. 
+\\ \\ 
+\includegraphics[scale =0.7]{firewallUpdate.png}
+\\ \\
+Eksempel på bruk av 'firewallUpdateRule', port 80 blir sperret.
+\subsection{2: Start apachemonitor} 
+Dette valget er ganske rett fram; et tilpasset skript deler skjermen i to og viser henholdsvis error og standard - loggen til webserveren apache2. Dette for å vise oppføringer som kommer når vi besøker sider hostet på webtjeneren, og kan vise hva som skjer når vi bestemmer oss for å ''plage'' LAMP - serveren.
+\\ \\
+\includegraphics[scale= 0.7]{apachelogg.png}
+\\ \\
+Bildet viser eksempel på loggoppføring ved vanlig besøk på innhold hostet av webtjeneren. Leg merke til advarsel om fil som ikke eksisterer, denne feilen er framprovosert for å vise feil i loggen. Eksempel på bruk kan være å se hva som skjer i loggen om en modifisert get - request blir sendt. 
+\subsection{3: Start fail2ban (IPS Service)}
+En av de mest effektife Intrusion Prevention System - tjenestene der ute er fail2ban. Den banner rett og slett IP - adresser som prøver seg på bruteforce - angrep på serveren. Tjenesten starter rett og slett fail2ban etter en gitt tid. For å demonstrere bruk av fail2ban kan python-skriptet ''ssh\_forcer.py'' kjøres fra host - maskinen. Skriptet ligger på ''SNS/bin/Client/ssh\_forcer.py''. Skriptet vil prøve å brutforce SSH - login på SSN - serveren, passordforsøk på passordforsøk. Ved å aktivere fail2ban, kan man se at angrepsforsøkene stopper fordi IPen til slutt blir bannet. Effektiv demo av en IPS sine egenskaper: Den gjør aktive tiltak mot angriper.
+\\ \\
+\includegraphics[scale = 0.5]{ips.png}
+\\ \\
+Bildet viser bruk av ssh\_forcer og IPS - pakken. Her får angriper prøvd seg 7 ganger før fail2ban starter og får sendt IPen i ''fengsel''. Utvidelse her kan være bruteforce - forsøk på HTTP - serveren. 
+\subsection{4: Send mail}
+Dette valget er ment som en demonstrasjon av hvor enkelt det er å sende epost med falsk avsender, som igjen kan føre til både pishingforsøk og spam. I dag regnes hele 80 - 85 \% av all mailtrafikk som spam.\footnote{Kilde: https://en.wikipedia.org/wiki/Spam_\%28electronic\%29#cite_note-4} Skriptet som starter mailsendingen spør deg om mottakeradresse (NB: ikke benytt skriptet uten at mottaker er klar over det!) og en ønsket avsenderadresses. Etter noen sekunder sendes mailen ut fra serveren, med en standard tekst som ligger lagret på ''/SNS/resources/doc/MailMessage''. OBS: For at denne funksjonaliteten skal funke kan man \textit{ikke} være bak brannmur som stopper trafikk på SMTP - porten. Vanlige ISPer som Canal Digital osv. stopper trafikk her. Dette er derimot ikke et problem på HiST, hvor SNS hovedsaklig skal brukes. 
+\\ \\
+\includegraphics[scale = 0.7]{mailsender.png}
+\\ \\ 
+Her ser vi bruk av mailsender, hvor Bill Gates tilsynelatende har sendt mail. Men, som teksten sier, burde man sjekke mailheaderen for å se om avsender er den han er. Videre bruk av tjenesten kan være å lage til en phising - mal som sendes, for å demonstrere hvor enkelt det er å lage en tilsynelatende ekte mail fra foreks. banken din. Et annet bruksmønster er å overvåke pakkene som går; tjenesten er lagt opp til å sende mail uten kryptering, så alt går i klartekst. Dette er også grunnen til at mailen venter 4 sekunder før den sendes, så foreks. Wireshark kan rettes mot serverens IP for se på pakkene som går. 
 \section{Om kildekodens oppbyggning}
 <her kommer beskrivelse av mappestruktur>
 
