@@ -1,6 +1,6 @@
 #! /bin/bash 
-tmux new-session -d 'sudo nethogs | ccze -A'
-tmux split-window -v 'sudo iftop | ccze -A '
+tmux new-session -d 'sudo nethogs'
+tmux split-window -v 'sudo iftop'
 #tmux split-window -h
 
 tmux -2 attach-session -d  
