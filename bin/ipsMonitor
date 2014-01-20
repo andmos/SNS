@@ -1,0 +1,6 @@
+#! /bin/bash
+
+tmux new-session -d 'ips'
+tmux split-window -v 'ipsLog'
+
+tmux -2 attach-session -d 

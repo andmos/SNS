@@ -11,6 +11,6 @@ do
     sudo ufw allow $port/tcp
 done
 
-sudo ufw enable -y
+sudo ufw enable -y 
 sudo ufw status verbose | ccze -A
 echo "To edit firewall rules, run 'firewallUpdateRule'" 
