@@ -2,7 +2,7 @@
 
 echo "Logg files in /var/log/SimpleNetworkServer.log"
 sudo touch /var/log/SimpleNetworkServer.log
-
+sudo chmod 777 /var/log/SimpleNetworkServer.log 
 function install() {
 sudo apt-get install -y $1 >/dev/null 2>&1 
     }
