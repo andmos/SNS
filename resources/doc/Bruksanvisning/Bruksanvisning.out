@@ -17,4 +17,5 @@
 \BOOKMARK [2][-]{subsection.6.2}{2: Start apachemonitor}{section.6}% 17
 \BOOKMARK [2][-]{subsection.6.3}{3: Start fail2ban \(IPS Service\)}{section.6}% 18
 \BOOKMARK [2][-]{subsection.6.4}{4: Send mail}{section.6}% 19
-\BOOKMARK [1][-]{section.7}{Om kildekodens oppbyggning}{}% 20
+\BOOKMARK [2][-]{subsection.6.5}{5: Start networkmonitor}{section.6}% 20
+\BOOKMARK [1][-]{section.7}{Om kildekodens oppbyggning}{}% 21

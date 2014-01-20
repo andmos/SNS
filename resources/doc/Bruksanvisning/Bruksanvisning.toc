@@ -18,4 +18,5 @@
 \contentsline {subsection}{\numberline {6.2}2: Start apachemonitor}{10}{subsection.6.2}
 \contentsline {subsection}{\numberline {6.3}3: Start fail2ban (IPS Service)}{12}{subsection.6.3}
 \contentsline {subsection}{\numberline {6.4}4: Send mail}{12}{subsection.6.4}
-\contentsline {section}{\numberline {7}Om kildekodens oppbyggning}{13}{section.7}
+\contentsline {subsection}{\numberline {6.5}5: Start networkmonitor}{13}{subsection.6.5}
+\contentsline {section}{\numberline {7}Om kildekodens oppbyggning}{15}{section.7}

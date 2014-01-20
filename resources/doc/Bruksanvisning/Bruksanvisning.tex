@@ -86,6 +86,7 @@ Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (
 \item SSH: Secure Shell
 \item OS: Operating System
 \item LAMP: Linux Apache MySql PHP
+\item ISP: Internet Service Provider
 \end{itemize}
 \\
 \subsection{Referanser}
@@ -248,11 +249,19 @@ En av de mest effektife Intrusion Prevention System - tjenestene der ute er fail
 \\ \\
 Bildet viser bruk av ssh\_forcer og IPS - pakken. Her får angriper prøvd seg 7 ganger før fail2ban starter og får sendt IPen i ''fengsel''. Utvidelse her kan være bruteforce - forsøk på HTTP - serveren. 
 \subsection{4: Send mail}
-Dette valget er ment som en demonstrasjon av hvor enkelt det er å sende epost med falsk avsender, som igjen kan føre til både pishingforsøk og spam. I dag regnes hele 80 - 85 \% av all mailtrafikk som spam.\footnote{Kilde: https://en.wikipedia.org/wiki/Spam_\%28electronic\%29#cite_note-4} Skriptet som starter mailsendingen spør deg om mottakeradresse (NB: ikke benytt skriptet uten at mottaker er klar over det!) og en ønsket avsenderadresses. Etter noen sekunder sendes mailen ut fra serveren, med en standard tekst som ligger lagret på ''/SNS/resources/doc/MailMessage''. OBS: For at denne funksjonaliteten skal funke kan man \textit{ikke} være bak brannmur som stopper trafikk på SMTP - porten. Vanlige ISPer som Canal Digital osv. stopper trafikk her. Dette er derimot ikke et problem på HiST, hvor SNS hovedsaklig skal brukes. 
+Dette valget er ment som en demonstrasjon av hvor enkelt det er å sende epost med falsk avsender, som igjen kan føre til både pishingforsøk og spam. I dag regnes hele 80 - 85 \% av all mailtrafikk som spam.\footnote{Kilde: https://en.wikipedia.org/wiki/Spam_\%28electronic\%29#cite_note-4} Skriptet som starter mailsendingen spør deg om mottakeradresse (NB: ikke benytt skriptet uten at mottaker er klar over det!) og en ønsket avsenderadresses. Etter noen sekunder sendes mailen ut fra serveren, med en standard tekst som ligger lagret på ''/SNS/resources/doc/MailMessage''. \\ OBS: For at denne funksjonaliteten skal funke kan man \textit{ikke} være bak brannmur som stopper trafikk på SMTP - porten. Vanlige ISPer som Canal Digital osv. stopper trafikk her. Dette er derimot ikke et problem på HiST, hvor SNS hovedsaklig skal brukes. 
 \\ \\
 \includegraphics[scale = 0.7]{mailsender.png}
 \\ \\ 
 Her ser vi bruk av mailsender, hvor Bill Gates tilsynelatende har sendt mail. Men, som teksten sier, burde man sjekke mailheaderen for å se om avsender er den han er. Videre bruk av tjenesten kan være å lage til en phising - mal som sendes, for å demonstrere hvor enkelt det er å lage en tilsynelatende ekte mail fra foreks. banken din. Et annet bruksmønster er å overvåke pakkene som går; tjenesten er lagt opp til å sende mail uten kryptering, så alt går i klartekst. Dette er også grunnen til at mailen venter 4 sekunder før den sendes, så foreks. Wireshark kan rettes mot serverens IP for se på pakkene som går. 
+\subsection{5: Start networkmonitor}
+Dette valget er en nettverksmonitor satt sammen av programmene Nethogs og Iftop. Nethogs viser hvilke kjørende prosesser som genererer nettverkstrafikk, både innkommende og utgående, mens Iftop viser trafikk på eth0 - kortet, altså nettverkskortet på serveren. iftop viser hvilke IPer som blir kommunisert med, og hvor mye trafikk som går. Fordi SNS er bygget opp fra grun av med \textit{kun} den funksjonaliteten vi ønsker for å demonstrere forskjellige aspekter ved faget Nettverkssikkerhet, vil det være få prosesser som kjører (SNS er programmert til å blokkere alle tjenestene fra oppstart, de blir kun aktive når du velge å bruke dem) som igjen fører til en ren og ryddig logg: den blir ikke oversvømt av prosesser som bruker nettverk. Dette verktøyet er derfor veldig fint å bruke for å demonstrere hvordan prosesser bruker trafikk inn / ut av serveren. 
+\\ \\
+\includegraphics[scale = 0.6]{networkmonitor.png} 
+\\ \\
+Det øverste vinduet er Nethogs, som her kun viser en aktiv prosess som bruker av nettverket, nemmlig SSH, som jeg kommuniserer med serveren via. \\ 
+Nedenfor ser vi iftop som melder om trafikk fra serveren til 10.0.2.2 som er hostmaskinens IP, samt trafikk til Signal, som er ISP der serveren står.
+Forslag bruk av denne netverksmonitoren er som nevnt å vise hvordan trafikk til / fra serveren vises, og man kan demonstrere hvor greit det er å holde orden på hvilke prosesser som bruker nettverksresurser i systemet. Skulle serveren bli kompromitert og bli en del av et botnet, kan man da helt klart se av monitoren om noe genererer mye trafikk. 
 \section{Om kildekodens oppbyggning}
 <her kommer beskrivelse av mappestruktur>
 
