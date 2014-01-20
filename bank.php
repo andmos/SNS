@@ -11,7 +11,7 @@ if(!isset($_POST['login'])){ //vis skjema
 	</tr>
 	<tr>
 		<td>Passord:</td>
-		<td><input type="text" name="passord"></td>
+		<td><input type="password" name="passord"></td>
 	</tr>
         <td>
             <input type="submit" value="Logg inn" name="login">
