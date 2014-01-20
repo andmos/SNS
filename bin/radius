@@ -2,9 +2,9 @@
 
 if [ -z "$(pgrep freeradius)" ]
       then
-        sudo service freeradius start > /dev/null
+        sudo service freeradius start > /var/log/SimpleNetworkServer.log
       else
-        sudo service freeradius restart > /dev/null
+        sudo service freeradius restart > /var/log/SimpleNetworkServer.log
        fi
 echo "Testing radius from localhost: "
 radtest vagrant vagrant localhost 1812 vagrant 
