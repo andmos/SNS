@@ -12,5 +12,5 @@ do
 done
 
 sudo ufw enable -y
-sudo ufw status verbose
+sudo ufw status verbose | ccze -A
 echo "To edit firewall rules, run 'firewallUpdateRule'" 
