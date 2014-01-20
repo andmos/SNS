@@ -3,6 +3,8 @@
 GREEN='\033[00;32m]'
 RESTORE='\033[0m]'
 
+clear
+
 echo -e "${GREEN} Starting fail2ban in 3 seconds to activly provent bruteforce..."
 sleep 3
 
@@ -13,4 +15,4 @@ if [ -z "$(pgrep fail2ban)" ]
       sudo service fail2ban restart > /var/log/SimpleNetworkServer.log
     fi
 echo -e "${GREEN} Started"
-echo -en "${RESTORE}
+echo -en "${RESTORE}"

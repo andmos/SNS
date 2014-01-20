@@ -24,7 +24,7 @@ read choise
 case $choise in
     1) firewallSetup ;;
     2) /vagrant/bin/apacheLogMonitor ;; 
-    3) sudo service fail2ban restart ;;  
+    3) /vagrant/bin/ips ;;  
     4) /vagrant/bin/mailSender ;; 
     5) /vagrant/bin/networkMonitoring ;; 
     6) /vagrant/bin/proxy ;;
