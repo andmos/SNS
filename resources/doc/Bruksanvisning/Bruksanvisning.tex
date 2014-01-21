@@ -262,6 +262,13 @@ Dette valget er en nettverksmonitor satt sammen av programmene Nethogs og Iftop.
 Det øverste vinduet er Nethogs, som her kun viser en aktiv prosess som bruker av nettverket, nemmlig SSH, som jeg kommuniserer med serveren via. \\ 
 Nedenfor ser vi iftop som melder om trafikk fra serveren til 10.0.2.2 som er hostmaskinens IP, samt trafikk til Signal, som er ISP der serveren står.
 Forslag bruk av denne netverksmonitoren er som nevnt å vise hvordan trafikk til / fra serveren vises, og man kan demonstrere hvor greit det er å holde orden på hvilke prosesser som bruker nettverksresurser i systemet. Skulle serveren bli kompromitert og bli en del av et botnet, kan man da helt klart se av monitoren om noe genererer mye trafikk. 
+\subsection{6: Start webproxy}
+For å demonstrere hvordan webtrafikk kan dirigeres gjennom en proxy, har vi satt opp en egen tjeneste basert på webproxyen squid3. Når denne tjenesten starter, får man opp en todelt skjerm: den øverste delen viser informasjon om adresse og port til proxyen, samt informasjon om blokkede nettsider. Man kan enkelt benytte denne proxyen fra klientmaskinene på samme nett, ved å konfigurere nettleseren din. Å bruke webproxy er en fin måte for arbeidsgivere å kontrollere hvilke nettsider som besøkes, samt blokke uønskede tidstyver som facebook. Den andre delen av skjermen viser loggen til proxyen, med informasjon om hvem som har besøkt hvilke sider. \\
+For å angi andre blokkede sider, rediger følgende fil: ''/SNS/resources/squidRules/blockedSites''. I ''squidRules'' - mappa ligger også konfigurasjonsfilen til proxytjenesten.
+\\ \\
+\includegraphics[scale = 0.5]{proxy.png}
+\\ \\
+På bildet ser vi tjenesten i aksjon. Neders er en maskin med OS X konfigurert til å bruke webproxyen vår, og loggen viser trafikk mot blant annet digi.no, mens trafikk rettet mot vg.no blir blokkert. 
 \section{Om kildekodens oppbyggning}
 <her kommer beskrivelse av mappestruktur>
 
