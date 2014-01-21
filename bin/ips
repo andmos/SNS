@@ -16,3 +16,4 @@ if [ -z "$(pgrep fail2ban)" ]
     fi
 echo -e "${GREEN} Started"
 echo -en "${RESTORE}"
+read 
