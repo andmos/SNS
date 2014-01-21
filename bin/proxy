@@ -8,7 +8,8 @@ if [ -z "$(pgrep squid3)" ]
      sudo service squid3 restart >> /var/log/SimpleNetworkServer.log
 fi
 
+echo "To use this proxy, set up youre webbrowser to use the following info as proxy-server:"
 echo "Webproxy: `curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"`:3128" 
-
+echo -e "\n"
 echo "Blocked (http/https) sites: "
 cat /vagrant/resources/squidRules/blockedSites
