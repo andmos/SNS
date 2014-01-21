@@ -1,0 +1,8 @@
+#! /bin/bash
+
+/vagrant/bin/eksternip > ip 
+
+echo "The site $ip:8080/bank is login to a online banking site."
+echo "The site is poorly written, and the login goes directly against an MySQL database."
+echo "Try if you can SQL Inject it do get access to a users bank balance!" 
+echo "HINT: Users thomas is a good start." 
