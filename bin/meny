@@ -27,7 +27,7 @@ case $choise in
     3) /vagrant/bin/ipsMonitor ;;  
     4) /vagrant/bin/mailSender ;; 
     5) /vagrant/bin/networkMonitoring ;; 
-    6) /vagrant/bin/proxy ;;
+    6) /vagrant/bin/proxyMonitor ;;
     7) /vagrant/bin/vpn ;;  
     8) /vagrant/bin/radius ;;
     9) /vagrant/bin/snortMonitor ;; 

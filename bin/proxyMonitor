@@ -1,0 +1,6 @@
+#! /bin/bash
+
+tmux new-session -d 'proxy'
+tmux split-window -v 'proxyLog'
+
+tmux -2 attach-session -d
