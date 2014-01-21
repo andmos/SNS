@@ -21,6 +21,7 @@ if(!isset($_POST['login'])){ //vis skjema
     </center>
 <?
 }else{
+    echo "<center>"; 
     $db = new mysqli("localhost", "root", "Glittertind", "konto");
     
     $sqlsetning= "SELECT * FROM konto WHERE kontoeier = '" . $_POST["navn"] . "' ";
@@ -37,7 +38,7 @@ if(!isset($_POST['login'])){ //vis skjema
             $kontoeier = $row["kontoeier"];
             $saldo = $row["saldo"];
         }
-       
+                
         echo "<h1>Velkommen til " . $kontoeier . " sin nettbank</h1><br>";
         echo "Din saldo er: " . $saldo;
         
@@ -46,6 +47,7 @@ if(!isset($_POST['login'])){ //vis skjema
     }
     
     $db->close();
+    echo "</center>"; 
 }
 ?>
 
