@@ -13,5 +13,6 @@ echo "Webproxy: `curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.
 echo -e "\n"
 echo "Blocked (http/https) sites: "
 cat /vagrant/resources/squidRules/blockedSites
-
+echo -e "\n"
+echo "To block more sites, edit /resources/squidRules/blockedSites" 
 read enter
