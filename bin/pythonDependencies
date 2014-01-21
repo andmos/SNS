@@ -13,6 +13,11 @@ do
     installF $program
 done
 
-sudo pip install paramiko > /var/log/SimpleNetworkServer.log
+if [ -z /var/log/SimpleNetworkServer.log ]
+    then
+        sudo pip install paramiko
+    else
+        sudo pip install paramiko > /var/log/SimpleNetworkServer.log
+    fi
 
 echo "All done!" 
