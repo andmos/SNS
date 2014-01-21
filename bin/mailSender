@@ -8,7 +8,7 @@ echo "Enter senders address:"
 read fromAddress
 subject="Mail fra Simple Network Server"
 message="/vagrant/resources/doc/MailMessage.txt"
-
+echo "Make sure port 25 is open on external network!" 
 echo "Sends email in 4 seconds:"
 
 sleep 4
