@@ -5,7 +5,7 @@ if [ -z "$(pgrep snort)" ]
       sudo service snort start > /var/log/SimpleNetworkServer.log
     else 
         sudo service snort restart > /var/log/SimpeNetworkServer.log
-
+    fi
 echo "snort is currently listening to traffic on internal IP, 10.0.2.15"
 
 sleep 6
