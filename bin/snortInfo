@@ -7,6 +7,6 @@ if [ -z "$(pgrep snort)" ]
         sudo service snort restart > /var/log/SimpleNetworkServer.log
     fi
 echo "snort is currently listening to all traffic on eth0,  internal IP, 10.0.2.15"
-echo -n "\n"
+echo -e "\n"
 echo "To genereate traffic that will be detected by Snort, use 'nmap -v -sS -O <ip-address/CIDR>' from another termnianl - window."
 read enter
