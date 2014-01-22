@@ -87,6 +87,7 @@ Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (
 \item OS: Operating System
 \item LAMP: Linux Apache MySql PHP
 \item ISP: Internet Service Provider
+\item DDOS: Distributed Denial-Of-Service
 \end{itemize}
 \\
 \subsection{Referanser}
@@ -222,7 +223,7 @@ Alle endringer og oppsett på den virtuelle maskinen blir nå slettet. Har man f
 \section{Gjennomgang av nåværende funksjonalitet}
 For å benytte seg av funksjonaliteten som er bygget inn i SNS har vi laget en oppstartsmeny som enkelt og greit skal kunne guide deg til den funksjonaliteten du er ute etter (se kravdok). Du kommer til denne menyen når SNS er startet, og ''vagrant ssh'' er kjørt. Ved så å skrive ''meny'' fra kommandolinja, blir man møtt av følgende vindu: 
 \\ \\
-\includegraphics[scale=0.7]{meny.png} 
+\includegraphics[scale=0.8]{meny.png} 
 \\ \\
 I dette avsnittet går vi gjennom hver av disse valgene, med forslag til bruk og utvidelse.  
 \subsection{1: Start firewall}
@@ -269,6 +270,83 @@ For å angi andre blokkede sider, rediger følgende fil: ''/SNS/resources/squidR
 \includegraphics[scale = 0.5]{proxy.png}
 \\ \\
 På bildet ser vi tjenesten i aksjon. Neders er en maskin med OS X konfigurert til å bruke webproxyen vår, og loggen viser trafikk mot blant annet digi.no, mens trafikk rettet mot vg.no blir blokkert. 
+\subsection{7: Start VPN-Server}
+En nettverksfunksjonalitet som er inn for tiden er VPN. Med VPN får man opprettet en kryptert tunell inn mot en server, slik at man får tilgang til resurser på denne, eller nettet den er knyttet opp mot. For å demonstrere dette har vi satt opp en av de mest brukte VPN - tjenerne, OpenVPN AS (AS står i dette tilfelelt for access - server.) Når valget er tatt, kommer det opp informasjon om tilkobling. Vi har gått for en enkel løsning her, så vinduet ser slik ut: 
+\\
+\\
+\includegraphics[scale = 0.7]{vpn.png}
+\\ 
+\\
+Oppgitt URL leder til tilkoblingsside som laster ned klient til det OSet du sitter på, og lar deg automatisk koble opp mot serveren vår.
+Skulle det være ønskelig med demonstrasjon av adminpanelet til openvpn, kan dette gjøre via /admin - siden. 
+\\
+\\
+\includegraphics[scale = 0.7]{vpn2.png}
+\\ 
+\\
+Bildet over vise videresending ved login på VPN - tjeneren.
+\subsection{8: Start RADIUS}
+RADIUS er en fin måte å sentralisere administrasjon av nettverkskomponenter, da særlig brukernavn / passord for switcher, rutere osv. Vanligvis koblet RADIUS opp mot en katalogtjeneste (som foreks. LDAP eller Actitve Directory), men fordi vår løsning skal være så lettvektig som mulig har vi ikke satt opp noen LDAP som en del av tjenesten. Vi har derimot laget rammeverket klart, samt en liten demonstrasjon av en bruker som får autentisert seg mot RADIUS:
+\\ 
+\\
+\includegraphics[scale = 0.7]{radius.png}
+\\ 
+\\
+Foreslått videreutvikling her kan være å legge til flere brukere og åpne for tilkobling utenfor eget nett for demonstrasjon.
+\subsection{9: Start Snort (IDS service)}
+En av de nyttigste verktøyene i nettverksmonitoreringskassa er et Intrusion Detection System, IDS. Et IDS analyserer trafikken som går i nettet, kjenner igjen mønstre og varsler om ting som kanskje ikke er som det skal være: Portscanning, forsøk på DDOS osv. blir identifisert og varslet om. SNS kommer med en ferdigkonfigurert Snort - løsning, som monitorerer det virtuelle nettverkskortet sitt.
+\\
+\\
+\includegraphics[scale = 0.7]{snort.png}
+\\
+\\
+Bildet over viser Snort skriptet vårt under bruk. Her kjøres en nettverkskortlegging via NMAP ut fra serveren, og Snort varsler om at trafikken kan være en del av et DDOS - angrep, samt at porter blir scannet. Regelsett for Snort lastes inn fra ''/SNS/resources/snortRules'', så en utvidelse med nye regler kan fint legges i denne mappa, og de vil da automatisk bli lagt inn til Snort ved oppstart av SNS. Ellers står man fritt til å bruke forskjellige angrepsteknikker mot serveren, for å se hvordan systemet ser ut. 
+\subsection{10: Try out SQL - injection}
+Et potensielt stort sikkerhetsproblem i nett er dårlig oppsatte / programmerte webtjenere. For å demonstrere dette har vi satt sammen en MySQL - database med ''kontoer'', og en frontend skrevet i PHP. Denne siden er ment som eksempel på en enkel nettbank: Du logger deg inn med brukernavn og passord, og får tilgang til kontoopplysningene dine, som ligger i databasen. For å demonstrere dårlig skrevet kode, har vi bevisst laget login - formen uten å sikre siden mot SQL - injections. 
+\\
+\\
+\includegraphics[scale = 0.8]{sqlinject.png}
+\\
+\\
+Bildet over viser infoen som kommer på skjermen, mens bildet under viser loginskjermen.
+\\
+\\
+\includegraphics[scale = 0.7]{bank.png}
+\\
+\\
+Brukernavn og passord ligger i databasen, men her ønsker vi at folk skal prøve å ''hacke'' seg inn på siden ved hjelp av SQL - injection. 
+Når man prøver seg fram, vil SQL - spørringen som blir sendt inn presentert på skjermen, som en liten hjelper. \\ 
+Et forslag til løsning er å sende inn ''thomas'-- '' og hva som helst som passord. Da blir SQL settningen seende slik ut: 
+\begin{lstlisting}
+SELECT * FROM konto WHERE kontoeier = 'thomas'-- ' AND passord= 'pass' 
+\end{lstlisting}
+\\ 
+Forslag til bruk er å ha en konkurranse blant elevene i forelesningen, om hvem som klarer å bryte seg inn kjappest. 
+\subsection{11: Look at database}
+Denne funksjonen er ment som en utvidelse av SQL-Inject - funksjonen. Det eneste den gjør er å mappe ut ''Konto'' tabellen, med brukernavn, passord og saldo. Kan brukes som fasit, eller bare for å se på basen. Alle SQL - filene ligger lagret på ''/SNS/resources/databases'', og blir lastet inn til MySQL - basen ved oppstart. Man kan derfor fritt legge til flere databaser for import her.
+\subsection{12: ForkBomb (exit with ctrl + c}
+Nå er vi over på et par angresskript som er skrevet som eksempler til prosjektet. ForkBomben viser hva som skjer om en bruker på en Linux - server ikke har begrensninger på hvor mange prosesser han kan kjøre. ForkBomben er meget enkel: 
+\begin{lstlisting}
+#! /usr/bin/perl
+# Careful about this, use only if you know what you are doing
+my $count = 0;
+while(1) {
+    fork();
+    print $count;
+    $count++;
+}
+\end{lstlisting}
+Skriptet genererer rett og slett en ny prosess for hver gjennomgang, altså n for hver gjennomkjøring. Over litt tid blir dette veldig mange prosesser, noe som sløver ned serveren til det ubrukelige, og er ment som eksempel på sikkerhetshull. 
+\\
+\\
+\includegraphics[scale = 0.6]{forkbomb.png}
+\\
+\\
+Bildet viser kjøring av ForkBomb, som her bruker 87\% CPU, og har til nå generert 2924 prosesser. 
+\subsection{13 og 14: Portscan og NMAP - analyse}
+De to siste funksjonene er rett og slett script som kjører NMAP og portscan - analyse av serveren, rett og slett for å vise hvor kraftig NMAP er. 
+Selve angrepsdelen av prosjektet kan godt bygges på med flere skript.
+\end{lstlisting}
 \section{Om kildekodens oppbyggning}
 <her kommer beskrivelse av mappestruktur>
 

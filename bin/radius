@@ -1,4 +1,9 @@
 #! /bin/bash
+clear
+echo "Radius is currently only available from localhost."
+echo "User is vagrant, with password 'vagrant'."
+echo -e "\n" 
+sleep 4
 
 if [ -z "$(pgrep freeradius)" ]
       then
@@ -7,5 +12,6 @@ if [ -z "$(pgrep freeradius)" ]
         sudo service freeradius restart > /var/log/SimpleNetworkServer.log
        fi
 echo "Testing radius from localhost: "
+echo -e "\n"
 radtest vagrant vagrant localhost 1812 vagrant 
 
