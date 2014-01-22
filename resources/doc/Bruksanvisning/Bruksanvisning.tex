@@ -156,12 +156,12 @@ vagrant up
 \\ \\
 Et virtuelt Ubuntu - image vil nå lastes ned (skjer kun ved første gangs kjøring) og prosjektfilene vil settes opp på dette imaget. 
 Skjermbildet ved første gangs innhenting av image ser slik ut: \\ \\
-\includegraphics[scale = 0.7]{vagrantFirstTime.png}
+\includegraphics[scale = 0.7]{pictures/vagrantFirstTime.png}
 \\ \\
 Dette imaget er det vagrant kaller en ''box''. Den fungerer som grunnimage, og nedlastning skjer som sagt kun ved første gangs bygg av prosjektet. Ved alle nyoppsett av systemet vil imaget brukes som grunn-OS for prosjektfilene til SNS, eller en såkalt ''sandbox''. Boksen kan lokaliseres i den skjulte mappa ''./vagrant.d'' på hjemmekatalogen til brukeren din. \\ \\
 For å sjekke at den virtuelle maskinen fungerer som den skal, gå til \url{http://localhost:8080/} fra nettleseren din. Du vil da få opp denne siden:
 \\ \\
-\includegraphics[scale = 0.7]{vagrantWorks.png} 
+\includegraphics[scale = 0.7]{pictures/vagrantWorks.png} 
 \\ \\
 
 \subsection{Kjente oppsettsproblemer}
@@ -211,7 +211,7 @@ vagrant ssh
 \end{lstlisting}
 \\
 Man blir da møtt av følgende skjermbilde: \\ \\
-\includegraphics[scale = 0.7]{vagrantSSH.png}
+\includegraphics[scale = 0.7]{pictures/vagrantSSH.png}
 \\ \\
 og kan nå bruke alle verktøyene SNS tilbyr enkelt via kommandolinja, hovedsaklig via ''meny'' kommandoen for enkelhets skyld. Det er vert å merke seg at SNS - maskinen er en fullverdig virtuell Ubuntu - maskin, så all Linux - funksjonalitet utenfor prosjektets verktøy kan fritt brukes og / eller installeres. \\ 
 Når man er ferdig med maskinen, avslutter man SSH - sesjonen og skriver: \\
@@ -223,42 +223,42 @@ Alle endringer og oppsett på den virtuelle maskinen blir nå slettet. Har man f
 \section{Gjennomgang av nåværende funksjonalitet}
 For å benytte seg av funksjonaliteten som er bygget inn i SNS har vi laget en oppstartsmeny som enkelt og greit skal kunne guide deg til den funksjonaliteten du er ute etter (se kravdok). Du kommer til denne menyen når SNS er startet, og ''vagrant ssh'' er kjørt. Ved så å skrive ''meny'' fra kommandolinja, blir man møtt av følgende vindu: 
 \\ \\
-\includegraphics[scale=0.8]{meny.png} 
+\includegraphics[scale=0.8]{pictures/meny.png} 
 \\ \\
 I dette avsnittet går vi gjennom hver av disse valgene, med forslag til bruk og utvidelse.  
 \subsection{1: Start firewall}
 Det første valget starter et skript som er tilpassed demonostrasjon av brannmur. \\ Her er funksjonaliteten ganske enkel: et skript starte brannmurprogrammvaren (ufw, abstraksjonslag oppå iptables) og laster inn en på forhånd oppsatt konfigurasjon som låser ned serveren, med unntak av portene som aktivt brukes i SNS som åpnes. Når skriptet er ferdig, dukker en oversikt over de åpne portene opp. 
 \\ \\
-\includegraphics[scale = 0.7]{firewall.png}
+\includegraphics[scale = 0.7]{pictures/firewall.png}
 \\ \\ 
 Som vi ser av bildet, er de portene som er markert som åpne inn kun de som er ibruk av Simple Network Server. 
 For å demonstrere brannmurendringern, kan skriptet 'firewallUpdateRule' kjøres rett fra kommandolinja. Dette skriptet er skrevet for enkelt og greit å gjøre endringer i aksesspolicyen til portene på serveren. Du velger om en port skal åpnes eller lukkes, og får da ny oversikt over portene på serveren. Dette for å lett kunne demonstrere brannmurens virkemåte. Eksemplel på bruk kan være å stenge port 80, for så å besøkle \url{http://localhost:8080} og se at aksessen nå er sperret. Anne bruk kan være å kjøre portscanner mot serverens adresse og se på åpne porter. 
 \\ \\ 
-\includegraphics[scale =0.7]{firewallUpdate.png}
+\includegraphics[scale =0.7]{pictures/firewallUpdate.png}
 \\ \\
 Eksempel på bruk av 'firewallUpdateRule', port 80 blir sperret.
 \subsection{2: Start apachemonitor} 
 Dette valget er ganske rett fram; et tilpasset skript deler skjermen i to og viser henholdsvis error og standard - loggen til webserveren apache2. Dette for å vise oppføringer som kommer når vi besøker sider hostet på webtjeneren, og kan vise hva som skjer når vi bestemmer oss for å ''plage'' LAMP - serveren.
 \\ \\
-\includegraphics[scale= 0.7]{apachelogg.png}
+\includegraphics[scale= 0.7]{pictures/apachelogg.png}
 \\ \\
 Bildet viser eksempel på loggoppføring ved vanlig besøk på innhold hostet av webtjeneren. Leg merke til advarsel om fil som ikke eksisterer, denne feilen er framprovosert for å vise feil i loggen. Eksempel på bruk kan være å se hva som skjer i loggen om en modifisert get - request blir sendt. 
 \subsection{3: Start fail2ban (IPS Service)}
 En av de mest effektife Intrusion Prevention System - tjenestene der ute er fail2ban. Den banner rett og slett IP - adresser som prøver seg på bruteforce - angrep på serveren. Tjenesten starter rett og slett fail2ban etter en gitt tid. For å demonstrere bruk av fail2ban kan python-skriptet ''ssh\_forcer.py'' kjøres fra host - maskinen. Skriptet ligger på ''SNS/bin/Client/ssh\_forcer.py''. Skriptet trenger noen pakker for python, som kan skaffes ved å kjøre ''SNS/bin/pythonDependencies''. Skriptet vil prøve å brutforce SSH - login på SSN - serveren, passordforsøk på passordforsøk. Ved å aktivere fail2ban, kan man se at angrepsforsøkene stopper fordi IPen til slutt blir bannet. Effektiv demo av en IPS sine egenskaper: Den gjør aktive tiltak mot angriper.
 \\ \\
-\includegraphics[scale = 0.5]{ips.png}
+\includegraphics[scale = 0.5]{pictures/ips.png}
 \\ \\
 Bildet viser bruk av ssh\_forcer og IPS - pakken. Her får angriper prøvd seg 7 ganger før fail2ban starter og får sendt IPen i ''fengsel''. Utvidelse her kan være bruteforce - forsøk på HTTP - serveren. 
 \subsection{4: Send mail}
 Dette valget er ment som en demonstrasjon av hvor enkelt det er å sende epost med falsk avsender, som igjen kan føre til både pishingforsøk og spam. I dag regnes hele 80 - 85 \% av all mailtrafikk som spam.\footnote{Kilde: https://en.wikipedia.org/wiki/Spam_\%28electronic\%29#cite_note-4} Skriptet som starter mailsendingen spør deg om mottakeradresse (NB: ikke benytt skriptet uten at mottaker er klar over det!) og en ønsket avsenderadresses. Etter noen sekunder sendes mailen ut fra serveren, med en standard tekst som ligger lagret på ''/SNS/resources/doc/MailMessage''. \\ OBS: For at denne funksjonaliteten skal funke kan man \textit{ikke} være bak brannmur som stopper trafikk på SMTP - porten. Vanlige ISPer som Canal Digital osv. stopper trafikk her. Dette er derimot ikke et problem på HiST, hvor SNS hovedsaklig skal brukes. 
 \\ \\
-\includegraphics[scale = 0.7]{mailsender.png}
+\includegraphics[scale = 0.7]{pictures/mailsender.png}
 \\ \\ 
 Her ser vi bruk av mailsender, hvor Bill Gates tilsynelatende har sendt mail. Men, som teksten sier, burde man sjekke mailheaderen for å se om avsender er den han er. Videre bruk av tjenesten kan være å lage til en phising - mal som sendes, for å demonstrere hvor enkelt det er å lage en tilsynelatende ekte mail fra foreks. banken din. Et annet bruksmønster er å overvåke pakkene som går; tjenesten er lagt opp til å sende mail uten kryptering, så alt går i klartekst. Dette er også grunnen til at mailen venter 4 sekunder før den sendes, så foreks. Wireshark kan rettes mot serverens IP for se på pakkene som går. 
 \subsection{5: Start networkmonitor}
 Dette valget er en nettverksmonitor satt sammen av programmene Nethogs og Iftop. Nethogs viser hvilke kjørende prosesser som genererer nettverkstrafikk, både innkommende og utgående, mens Iftop viser trafikk på eth0 - kortet, altså nettverkskortet på serveren. iftop viser hvilke IPer som blir kommunisert med, og hvor mye trafikk som går. Fordi SNS er bygget opp fra grun av med \textit{kun} den funksjonaliteten vi ønsker for å demonstrere forskjellige aspekter ved faget Nettverkssikkerhet, vil det være få prosesser som kjører (SNS er programmert til å blokkere alle tjenestene fra oppstart, de blir kun aktive når du velge å bruke dem) som igjen fører til en ren og ryddig logg: den blir ikke oversvømt av prosesser som bruker nettverk. Dette verktøyet er derfor veldig fint å bruke for å demonstrere hvordan prosesser bruker trafikk inn / ut av serveren. 
 \\ \\
-\includegraphics[scale = 0.6]{networkmonitor.png} 
+\includegraphics[scale = 0.6]{pictures/networkmonitor.png} 
 \\ \\
 Det øverste vinduet er Nethogs, som her kun viser en aktiv prosess som bruker av nettverket, nemmlig SSH, som jeg kommuniserer med serveren via. \\ 
 Nedenfor ser vi iftop som melder om trafikk fra serveren til 10.0.2.2 som er hostmaskinens IP, samt trafikk til Signal, som er ISP der serveren står.
@@ -267,21 +267,21 @@ Forslag bruk av denne netverksmonitoren er som nevnt å vise hvordan trafikk til
 For å demonstrere hvordan webtrafikk kan dirigeres gjennom en proxy, har vi satt opp en egen tjeneste basert på webproxyen squid3. Når denne tjenesten starter, får man opp en todelt skjerm: den øverste delen viser informasjon om adresse og port til proxyen, samt informasjon om blokkede nettsider. Man kan enkelt benytte denne proxyen fra klientmaskinene på samme nett, ved å konfigurere nettleseren din. Å bruke webproxy er en fin måte for arbeidsgivere å kontrollere hvilke nettsider som besøkes, samt blokke uønskede tidstyver som facebook. Den andre delen av skjermen viser loggen til proxyen, med informasjon om hvem som har besøkt hvilke sider. \\
 For å angi andre blokkede sider, rediger følgende fil: ''/SNS/resources/squidRules/blockedSites''. I ''squidRules'' - mappa ligger også konfigurasjonsfilen til proxytjenesten.
 \\ \\
-\includegraphics[scale = 0.5]{proxy.png}
+\includegraphics[scale = 0.5]{pictures/proxy.png}
 \\ \\
 På bildet ser vi tjenesten i aksjon. Neders er en maskin med OS X konfigurert til å bruke webproxyen vår, og loggen viser trafikk mot blant annet digi.no, mens trafikk rettet mot vg.no blir blokkert. 
 \subsection{7: Start VPN-Server}
 En nettverksfunksjonalitet som er inn for tiden er VPN. Med VPN får man opprettet en kryptert tunell inn mot en server, slik at man får tilgang til resurser på denne, eller nettet den er knyttet opp mot. For å demonstrere dette har vi satt opp en av de mest brukte VPN - tjenerne, OpenVPN AS (AS står i dette tilfelelt for access - server.) Når valget er tatt, kommer det opp informasjon om tilkobling. Vi har gått for en enkel løsning her, så vinduet ser slik ut: 
 \\
 \\
-\includegraphics[scale = 0.7]{vpn.png}
+\includegraphics[scale = 0.7]{pictures/vpn.png}
 \\ 
 \\
 Oppgitt URL leder til tilkoblingsside som laster ned klient til det OSet du sitter på, og lar deg automatisk koble opp mot serveren vår.
 Skulle det være ønskelig med demonstrasjon av adminpanelet til openvpn, kan dette gjøre via /admin - siden. 
 \\
 \\
-\includegraphics[scale = 0.7]{vpn2.png}
+\includegraphics[scale = 0.7]{pictures/vpn2.png}
 \\ 
 \\
 Bildet over vise videresending ved login på VPN - tjeneren.
@@ -289,7 +289,7 @@ Bildet over vise videresending ved login på VPN - tjeneren.
 RADIUS er en fin måte å sentralisere administrasjon av nettverkskomponenter, da særlig brukernavn / passord for switcher, rutere osv. Vanligvis koblet RADIUS opp mot en katalogtjeneste (som foreks. LDAP eller Actitve Directory), men fordi vår løsning skal være så lettvektig som mulig har vi ikke satt opp noen LDAP som en del av tjenesten. Vi har derimot laget rammeverket klart, samt en liten demonstrasjon av en bruker som får autentisert seg mot RADIUS:
 \\ 
 \\
-\includegraphics[scale = 0.7]{radius.png}
+\includegraphics[scale = 0.7]{pictures/radius.png}
 \\ 
 \\
 Foreslått videreutvikling her kan være å legge til flere brukere og åpne for tilkobling utenfor eget nett for demonstrasjon.
@@ -297,7 +297,7 @@ Foreslått videreutvikling her kan være å legge til flere brukere og åpne for
 En av de nyttigste verktøyene i nettverksmonitoreringskassa er et Intrusion Detection System, IDS. Et IDS analyserer trafikken som går i nettet, kjenner igjen mønstre og varsler om ting som kanskje ikke er som det skal være: Portscanning, forsøk på DDOS osv. blir identifisert og varslet om. SNS kommer med en ferdigkonfigurert Snort - løsning, som monitorerer det virtuelle nettverkskortet sitt.
 \\
 \\
-\includegraphics[scale = 0.7]{snort.png}
+\includegraphics[scale = 0.7]{pictures/snort.png}
 \\
 \\
 Bildet over viser Snort skriptet vårt under bruk. Her kjøres en nettverkskortlegging via NMAP ut fra serveren, og Snort varsler om at trafikken kan være en del av et DDOS - angrep, samt at porter blir scannet. Regelsett for Snort lastes inn fra ''/SNS/resources/snortRules'', så en utvidelse med nye regler kan fint legges i denne mappa, og de vil da automatisk bli lagt inn til Snort ved oppstart av SNS. Ellers står man fritt til å bruke forskjellige angrepsteknikker mot serveren, for å se hvordan systemet ser ut. 
@@ -305,13 +305,13 @@ Bildet over viser Snort skriptet vårt under bruk. Her kjøres en nettverkskortl
 Et potensielt stort sikkerhetsproblem i nett er dårlig oppsatte / programmerte webtjenere. For å demonstrere dette har vi satt sammen en MySQL - database med ''kontoer'', og en frontend skrevet i PHP. Denne siden er ment som eksempel på en enkel nettbank: Du logger deg inn med brukernavn og passord, og får tilgang til kontoopplysningene dine, som ligger i databasen. For å demonstrere dårlig skrevet kode, har vi bevisst laget login - formen uten å sikre siden mot SQL - injections. 
 \\
 \\
-\includegraphics[scale = 0.8]{sqlinject.png}
+\includegraphics[scale = 0.8]{pictures/sqlinject.png}
 \\
 \\
 Bildet over viser infoen som kommer på skjermen, mens bildet under viser loginskjermen.
 \\
 \\
-\includegraphics[scale = 0.7]{bank.png}
+\includegraphics[scale = 0.7]{pictures/bank.png}
 \\
 \\
 Brukernavn og passord ligger i databasen, men her ønsker vi at folk skal prøve å ''hacke'' seg inn på siden ved hjelp av SQL - injection. 
@@ -339,7 +339,7 @@ while(1) {
 Skriptet genererer rett og slett en ny prosess for hver gjennomgang, altså n for hver gjennomkjøring. Over litt tid blir dette veldig mange prosesser, noe som sløver ned serveren til det ubrukelige, og er ment som eksempel på sikkerhetshull. 
 \\
 \\
-\includegraphics[scale = 0.6]{forkbomb.png}
+\includegraphics[scale = 0.6]{pictures/forkbomb.png}
 \\
 \\
 Bildet viser kjøring av ForkBomb, som her bruker 87\% CPU, og har til nå generert 2924 prosesser. 
