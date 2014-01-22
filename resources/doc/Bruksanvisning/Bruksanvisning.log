@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.2.25)  20 JAN 2014 20:33
+This is pdfTeX, Version 3.1415926-2.4-1.40.13 (TeX Live 2012) (format=pdflatex 2013.2.25)  22 JAN 2014 22:15
 entering extended mode
  \write18 enabled.
  file:line:error style messages enabled.
@@ -672,101 +672,80 @@ LaTeX Font Info:    Font shape `OMS/cmr/m/n' in size <10> not available
 (Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 85.
 
 
-./Bruksanvisning.tex:92: LaTeX Error: There's no line here to end.
+./Bruksanvisning.tex:93: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.92 \subsection
+l.93 \subsection
                 {Referanser}
 ? 
 [4]
-LaTeX Font Info:    Try loading font information for T1+cmtt on input line 113.
+LaTeX Font Info:    Try loading font information for T1+cmtt on input line 114.
 
  (/usr/local/texlive/2012/texmf-dist/tex/latex/base/t1cmtt.fd
 File: t1cmtt.fd 1999/05/25 v2.5h Standard LaTeX font definitions
 )
-Underfull \hbox (badness 10000) in paragraph at lines 113--114
+Underfull \hbox (badness 10000) in paragraph at lines 114--115
 
  []
 
 
-./Bruksanvisning.tex:118: LaTeX Error: There's no line here to end.
+./Bruksanvisning.tex:119: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.118 E
+l.119 E
        ller via macports\footnote{https://www.macports.org/} på OS X:
 ? 
 
-./Bruksanvisning.tex:123: LaTeX Error: There's no line here to end.
+./Bruksanvisning.tex:124: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.123 T
+l.124 T
        estet og anbefalt versjon er virtualbox 4.1.18.
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 129--131
+Underfull \hbox (badness 10000) in paragraph at lines 130--132
 
  []
 
 
-./Bruksanvisning.tex:135: LaTeX Error: There's no line here to end.
+./Bruksanvisning.tex:136: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.135 E
+l.136 E
        ller via macports på OS X:
 ? 
 
-./Bruksanvisning.tex:140: LaTeX Error: There's no line here to end.
+./Bruksanvisning.tex:141: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.140 T
+l.141 T
        estet og anbefalt versjon av vagrant er 1.2.7.
 ? 
 [5]
 
-./Bruksanvisning.tex:150: LaTeX Error: There's no line here to end.
+./Bruksanvisning.tex:151: LaTeX Error: There's no line here to end.
 
 See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.150 N
+l.151 N
        å kjøres prosjektet for første gang enkelt:
-? 
-
-./Bruksanvisning.tex:155: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.155 \\�
-         �\\
-? 
-
-./Bruksanvisning.tex:155: Package inputenc Error: Unicode char \u8:  not set u
-p for use with LaTeX.
-
-See the inputenc package documentation for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.155 \\ 
-          \\
 ? 
 
 ./Bruksanvisning.tex:156: LaTeX Error: There's no line here to end.
@@ -775,345 +754,579 @@ See the LaTeX manual or LaTeX Companion for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.156 E
-       t virtuelt Ubuntu - image vil nå lastes ned (skjer kun ved første g...
-
-? 
-<vagrantFirstTime.png, id=165, 592.2125pt x 169.63374pt>
-File: vagrantFirstTime.png Graphic file (type png)
-
-<use vagrantFirstTime.png>
-Package pdftex.def Info: vagrantFirstTime.png used on input line 158.
-(pdftex.def)             Requested size: 414.54591pt x 118.7428pt.
-
-<vagrantWorks.png, id=168, 673.51625pt x 179.67125pt>
-File: vagrantWorks.png Graphic file (type png)
- <use vagrantWorks.png>
-Package pdftex.def Info: vagrantWorks.png used on input line 163.
-(pdftex.def)             Requested size: 471.45816pt x 125.769pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--165
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--165
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--165
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--165
-
- []
-
-
-Overfull \hbox (1.70314pt too wide) in paragraph at lines 156--165
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--165
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 156--165
-
- []
-
-[6 <./vagrantFirstTime.png> <./vagrantWorks.png>]
-Underfull \hbox (badness 10000) in paragraph at lines 173--175
-
- []
-
-
-./Bruksanvisning.tex:181: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.181 M
-       erk: Dette er pakker for Ubuntu 12.04 LTS. For andre versjoner av OS ...
-
+l.156 \\�
+         �\\
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 181--185
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 181--185
-
- []
-
-
-Overfull \hbox (22.12862pt too wide) in paragraph at lines 186--187
-[][][][][][][][][][][][][][][][][] 
- []
-
-
-./Bruksanvisning.tex:191: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.191 O
-       g for 64 bit - versjonen:
-? 
-
-Overfull \hbox (22.12862pt too wide) in paragraph at lines 193--194
-[][][][][][][][][][][][][][][][][] 
- []
-
-
-./Bruksanvisning.tex:198: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.198 I
-       gjen, dette er pakker for Ubuntu. For andre distroer og OS X, besøk \\
-? 
-
-Underfull \hbox (badness 10000) in paragraph at lines 198--201
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 202--203
-
- []
-
-
-./Bruksanvisning.tex:207: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.207 O
-       g maskinen aksesseres via SSH ved
-? 
-
-./Bruksanvisning.tex:212: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.212 M
-       an blir da møtt av følgende skjermbilde: \\ \\
-? 
-<vagrantSSH.png, id=183, 385.44pt x 112.42pt>
-File: vagrantSSH.png Graphic file (type png)
- <use vagrantSSH.png>
-Package pdftex.def Info: vagrantSSH.png used on input line 213.
-(pdftex.def)             Requested size: 269.80615pt x 78.69345pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 212--217
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 212--217
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 212--217
-
- []
-
-[7 <./vagrantSSH.png>]
-
-./Bruksanvisning.tex:221: LaTeX Error: There's no line here to end.
-
-See the LaTeX manual or LaTeX Companion for explanation.
-Type  H <return>  for immediate help.
- ...                                              
-                                                  
-l.221 A
-       lle endringer og oppsett på den virtuelle maskinen blir nå slettet....
-
-? 
-<meny.png, id=209, 279.0425pt x 322.20375pt>
-File: meny.png Graphic file (type png)
- <use meny.png>
-Package pdftex.def Info: meny.png used on input line 225.
-(pdftex.def)             Requested size: 195.3284pt x 225.54108pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--228
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 223--228
-
- []
-
-<firewall.png, id=210, 562.1pt x 644.4075pt>
-File: firewall.png Graphic file (type png)
- <use firewall.png>
-Package pdftex.def Info: firewall.png used on input line 231.
-(pdftex.def)             Requested size: 393.46732pt x 451.08218pt.
-
-<firewallUpdate.png, id=212, 555.07375pt x 505.89pt>
-File: firewallUpdate.png Graphic file (type png)
- <use firewallUpdate.png>
-Package pdftex.def Info: firewallUpdate.png used on input line 236.
-(pdftex.def)             Requested size: 388.54897pt x 354.12057pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 229--239
-
- []
-
-[8 <./meny.png>] [9 <./firewall.png>]
-<apachelogg.png, id=225, 642.4pt x 764.8575pt>
-File: apachelogg.png Graphic file (type png)
- <use apachelogg.png>
-Package pdftex.def Info: apachelogg.png used on input line 242.
-(pdftex.def)             Requested size: 449.67694pt x 535.39659pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--245
-
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 240--245
-
- []
-
-[10 <./firewallUpdate.png>] <ips.png, id=231, 1089.06876pt x 725.71124pt>
-File: ips.png Graphic file (type png)
-
-<use ips.png>
-Package pdftex.def Info: ips.png used on input line 248.
-(pdftex.def)             Requested size: 544.53305pt x 362.85474pt.
-
-Underfull \hbox (badness 10000) in paragraph at lines 246--251
-
- []
-
-
-Overfull \hbox (74.77803pt too wide) in paragraph at lines 246--251
-[] 
- []
-
-
-Underfull \hbox (badness 10000) in paragraph at lines 246--251
-
- []
-
-[11 <./apachelogg.png>]
-./Bruksanvisning.tex:252: Missing $ inserted.
-<inserted text> 
-                $
-l.252 ...wiki/Spam_\%28electronic\%29#cite_note-4}
-                                                   Skriptet som starter mail...
-
-? 
-./Bruksanvisning.tex:252: You can't use `macro parameter character #' in math m
-ode.
-<argument> ...a.org/wiki/Spam_\%28electronic\%29##
-                                                  cite_note-4
-l.252 ...wiki/Spam_\%28electronic\%29#cite_note-4}
-                                                   Skriptet som starter mail...
-
-? 
-./Bruksanvisning.tex:252: Missing $ inserted.
-<inserted text> 
-                $
-l.252 ...wiki/Spam_\%28electronic\%29#cite_note-4}
-                                                   Skriptet som starter mail...
-
-? 
-<mailsender.png, id=238, 698.61pt x 288.07625pt>
-File: mailsender.png Graphic file (type png)
- <use mailsender.png>
-Package pdftex.def Info: mailsender.png used on input line 254.
-(pdftex.def)             Requested size: 489.02367pt x 201.65198pt.
-
-
-./Bruksanvisning.tex:255: Package inputenc Error: Unicode char \u8:  not set u
+./Bruksanvisning.tex:156: Package inputenc Error: Unicode char \u8:  not set u
 p for use with LaTeX.
 
 See the inputenc package documentation for explanation.
 Type  H <return>  for immediate help.
  ...                                              
                                                   
-l.255 \\ \\ 
-             
+l.156 \\ 
+          \\
 ? 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--257
+./Bruksanvisning.tex:157: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.157 E
+       t virtuelt Ubuntu - image vil nå lastes ned (skjer kun ved første g...
+
+? 
+<pictures/vagrantFirstTime.png, id=205, 592.2125pt x 169.63374pt>
+File: pictures/vagrantFirstTime.png Graphic file (type png)
+
+<use pictures/vagrantFirstTime.png>
+Package pdftex.def Info: pictures/vagrantFirstTime.png used on input line 159.
+(pdftex.def)             Requested size: 414.54591pt x 118.7428pt.
+
+<pictures/vagrantWorks.png, id=208, 673.51625pt x 179.67125pt>
+File: pictures/vagrantWorks.png Graphic file (type png)
+
+<use pictures/vagrantWorks.png>
+Package pdftex.def Info: pictures/vagrantWorks.png used on input line 164.
+(pdftex.def)             Requested size: 471.45816pt x 125.769pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--166
 
  []
 
 
-Overfull \hbox (19.26865pt too wide) in paragraph at lines 252--257
+Underfull \hbox (badness 10000) in paragraph at lines 157--166
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--166
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 157--166
+
+ []
+
+
+Overfull \hbox (1.70314pt too wide) in paragraph at lines 157--166
 [] 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 252--257
+Underfull \hbox (badness 10000) in paragraph at lines 157--166
 
  []
 
-[12 <./ips.png>] <networkmonitor.png, id=251, 642.4pt x 764.8575pt>
-File: networkmonitor.png Graphic file (type png)
 
-<use networkmonitor.png>
-Package pdftex.def Info: networkmonitor.png used on input line 260.
+Underfull \hbox (badness 10000) in paragraph at lines 157--166
+
+ []
+
+[6 <./pictures/vagrantFirstTime.png> <./pictures/vagrantWorks.png>]
+Underfull \hbox (badness 10000) in paragraph at lines 174--176
+
+ []
+
+
+./Bruksanvisning.tex:182: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.182 M
+       erk: Dette er pakker for Ubuntu 12.04 LTS. For andre versjoner av OS ...
+
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--186
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 182--186
+
+ []
+
+
+Overfull \hbox (22.12862pt too wide) in paragraph at lines 187--188
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+./Bruksanvisning.tex:192: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.192 O
+       g for 64 bit - versjonen:
+? 
+
+Overfull \hbox (22.12862pt too wide) in paragraph at lines 194--195
+[][][][][][][][][][][][][][][][][] 
+ []
+
+
+./Bruksanvisning.tex:199: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.199 I
+       gjen, dette er pakker for Ubuntu. For andre distroer og OS X, besøk \\
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 199--202
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 203--204
+
+ []
+
+
+./Bruksanvisning.tex:208: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.208 O
+       g maskinen aksesseres via SSH ved
+? 
+
+./Bruksanvisning.tex:213: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.213 M
+       an blir da møtt av følgende skjermbilde: \\ \\
+? 
+<pictures/vagrantSSH.png, id=223, 385.44pt x 112.42pt>
+File: pictures/vagrantSSH.png Graphic file (type png)
+
+<use pictures/vagrantSSH.png>
+Package pdftex.def Info: pictures/vagrantSSH.png used on input line 214.
+(pdftex.def)             Requested size: 269.80615pt x 78.69345pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--218
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 213--218
+
+ []
+
+[7 <./pictures/vagrantSSH.png>]
+
+./Bruksanvisning.tex:222: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.222 A
+       lle endringer og oppsett på den virtuelle maskinen blir nå slettet....
+
+? 
+<pictures/meny.png, id=249, 312.16624pt x 347.2975pt>
+File: pictures/meny.png Graphic file (type png)
+ <use pictures/meny.png>
+Package pdftex.def Info: pictures/meny.png used on input line 226.
+(pdftex.def)             Requested size: 249.73334pt x 277.83836pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--229
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 224--229
+
+ []
+
+<pictures/firewall.png, id=250, 562.1pt x 644.4075pt>
+File: pictures/firewall.png Graphic file (type png)
+
+<use pictures/firewall.png>
+Package pdftex.def Info: pictures/firewall.png used on input line 232.
+(pdftex.def)             Requested size: 393.46732pt x 451.08218pt.
+
+<pictures/firewallUpdate.png, id=252, 555.07375pt x 505.89pt>
+File: pictures/firewallUpdate.png Graphic file (type png)
+
+<use pictures/firewallUpdate.png>
+Package pdftex.def Info: pictures/firewallUpdate.png used on input line 237.
+(pdftex.def)             Requested size: 388.54897pt x 354.12057pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--240
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--240
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--240
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 230--240
+
+ []
+
+[8 <./pictures/meny.png>] [9 <./pictures/firewall.png>]
+<pictures/apachelogg.png, id=265, 642.4pt x 764.8575pt>
+File: pictures/apachelogg.png Graphic file (type png)
+
+<use pictures/apachelogg.png>
+Package pdftex.def Info: pictures/apachelogg.png used on input line 243.
+(pdftex.def)             Requested size: 449.67694pt x 535.39659pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--246
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 241--246
+
+ []
+
+[10 <./pictures/firewallUpdate.png>]
+<pictures/ips.png, id=271, 1089.06876pt x 725.71124pt>
+File: pictures/ips.png Graphic file (type png)
+ <use pictures/ips.png>
+Package pdftex.def Info: pictures/ips.png used on input line 249.
+(pdftex.def)             Requested size: 544.53305pt x 362.85474pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--252
+
+ []
+
+
+Overfull \hbox (74.77803pt too wide) in paragraph at lines 247--252
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 247--252
+
+ []
+
+[11 <./pictures/apachelogg.png>]
+./Bruksanvisning.tex:253: Missing $ inserted.
+<inserted text> 
+                $
+l.253 ...wiki/Spam_\%28electronic\%29#cite_note-4}
+                                                   Skriptet som starter mail...
+
+? 
+./Bruksanvisning.tex:253: You can't use `macro parameter character #' in math m
+ode.
+<argument> ...a.org/wiki/Spam_\%28electronic\%29##
+                                                  cite_note-4
+l.253 ...wiki/Spam_\%28electronic\%29#cite_note-4}
+                                                   Skriptet som starter mail...
+
+? 
+./Bruksanvisning.tex:253: Missing $ inserted.
+<inserted text> 
+                $
+l.253 ...wiki/Spam_\%28electronic\%29#cite_note-4}
+                                                   Skriptet som starter mail...
+
+? 
+<pictures/mailsender.png, id=278, 698.61pt x 288.07625pt>
+File: pictures/mailsender.png Graphic file (type png)
+
+<use pictures/mailsender.png>
+Package pdftex.def Info: pictures/mailsender.png used on input line 255.
+(pdftex.def)             Requested size: 489.02367pt x 201.65198pt.
+
+
+./Bruksanvisning.tex:256: Package inputenc Error: Unicode char \u8:  not set u
+p for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.256 \\ \\ 
+             
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--258
+
+ []
+
+
+Overfull \hbox (19.26865pt too wide) in paragraph at lines 253--258
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 253--258
+
+ []
+
+[12 <./pictures/ips.png>]
+<pictures/networkmonitor.png, id=291, 642.4pt x 764.8575pt>
+File: pictures/networkmonitor.png Graphic file (type png)
+
+<use pictures/networkmonitor.png>
+Package pdftex.def Info: pictures/networkmonitor.png used on input line 261.
 (pdftex.def)             Requested size: 385.44298pt x 458.91803pt.
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--265
+Underfull \hbox (badness 10000) in paragraph at lines 259--266
 
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 258--265
+Underfull \hbox (badness 10000) in paragraph at lines 259--266
 
  []
 
-[13 <./mailsender.png>]
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 268.
- [14 <./networkmonitor.png>] [15]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 268.
+[13 <./pictures/mailsender.png>]
+<pictures/proxy.png, id=297, 642.4pt x 1103.12125pt>
+File: pictures/proxy.png Graphic file (type png)
+ <use pictures/proxy.png>
+Package pdftex.def Info: pictures/proxy.png used on input line 270.
+(pdftex.def)             Requested size: 321.19922pt x 551.55928pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 267--273
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 267--273
+
+ []
+
+[14 <./pictures/networkmonitor.png>] [15]
+<pictures/vpn.png, id=308, 561.09625pt x 95.35625pt>
+File: pictures/vpn.png Graphic file (type png)
+ <use pictures/vpn.png>
+Package pdftex.def Info: pictures/vpn.png used on input line 277.
+(pdftex.def)             Requested size: 392.7647pt x 66.7489pt.
+
+<pictures/vpn2.png, id=309, 463.7325pt x 442.65375pt>
+File: pictures/vpn2.png Graphic file (type png)
+ <use pictures/vpn2.png>
+Package pdftex.def Info: pictures/vpn2.png used on input line 284.
+(pdftex.def)             Requested size: 324.61052pt x 309.8555pt.
+
+
+./Bruksanvisning.tex:285: Package inputenc Error: Unicode char \u8:  not set u
+p for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.285 \\ 
+          
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--288
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--288
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--288
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 274--288
+
+ []
+
+[16 <./pictures/proxy.png>]
+<pictures/radius.png, id=315, 580.1675pt x 249.93375pt>
+File: pictures/radius.png Graphic file (type png)
+
+<use pictures/radius.png>
+Package pdftex.def Info: pictures/radius.png used on input line 292.
+(pdftex.def)             Requested size: 406.11447pt x 174.95242pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 289--296
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 289--296
+
+ []
+
+[17 <./pictures/vpn.png> <./pictures/vpn2.png>]
+<pictures/snort.png, id=322, 649.42625pt x 764.8575pt>
+File: pictures/snort.png Graphic file (type png)
+
+<use pictures/snort.png>
+Package pdftex.def Info: pictures/snort.png used on input line 300.
+(pdftex.def)             Requested size: 454.59528pt x 535.39659pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--304
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 297--304
+
+ []
+
+[18 <./pictures/radius.png>]
+<pictures/sqlinject.png, id=329, 593.21625pt x 97.36375pt>
+File: pictures/sqlinject.png Graphic file (type png)
+
+<use pictures/sqlinject.png>
+Package pdftex.def Info: pictures/sqlinject.png used on input line 308.
+(pdftex.def)             Requested size: 474.57364pt x 77.89108pt.
+
+<pictures/bank.png, id=330, 411.5375pt x 180.675pt>
+File: pictures/bank.png Graphic file (type png)
+ <use pictures/bank.png>
+Package pdftex.def Info: pictures/bank.png used on input line 314.
+(pdftex.def)             Requested size: 288.07428pt x 126.47162pt.
+
+
+./Bruksanvisning.tex:318: Package inputenc Error: Unicode char \u8:  not set u
+p for use with LaTeX.
+
+See the inputenc package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.318 ... på skjermen, som en liten hjelper. \\ 
+                                                  
+? 
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--320
+
+ []
+
+
+Overfull \hbox (4.81862pt too wide) in paragraph at lines 305--320
+[] 
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--320
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--320
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 305--320
+
+ []
+
+[19 <./pictures/snort.png>]
+
+./Bruksanvisning.tex:324: LaTeX Error: There's no line here to end.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.324 F
+       orslag til bruk er å ha en konkurranse blant elevene i forelesningen...
+
+? 
+[20 <./pictures/sqlinject.png> <./pictures/bank.png>]
+<pictures/forkbomb.png, id=344, 649.42625pt x 764.8575pt>
+File: pictures/forkbomb.png Graphic file (type png)
+
+<use pictures/forkbomb.png>
+Package pdftex.def Info: pictures/forkbomb.png used on input line 342.
+(pdftex.def)             Requested size: 389.65875pt x 458.91803pt.
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--346
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 339--346
+
+ []
+
+[21]
+
+./Bruksanvisning.tex:349: Undefined control sequence.
+\lstlisting ->\def \lstenv@name 
+                                {lstlisting}\begingroup \lst@setcatcodes \ca...
+l.349 \end{lstlisting}
+                      
+? 
+./Bruksanvisning.tex:349: Package Listings Error: Extra \endlstlisting.
+
+See the Listings package documentation for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.349 \end{lstlisting}
+                      
+? 
+
+./Bruksanvisning.tex:349: LaTeX Error: \begin{document} ended by \end{lstlistin
+g}.
+
+See the LaTeX manual or LaTeX Companion for explanation.
+Type  H <return>  for immediate help.
+ ...                                              
+                                                  
+l.349 \end{lstlisting}
+                      
+? 
+./Bruksanvisning.tex:349: Extra \endgroup.
+<recently read> \endgroup 
+                          
+l.349 \end{lstlisting}
+                      
+? 
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 353.
+[22 <./pictures/forkbomb.png>]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 353.
  (./Bruksanvisning.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 268.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 268.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 353.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 353.
 Package rerunfilecheck Info: File `Bruksanvisning.out' has not changed.
-(rerunfilecheck)             Checksum: FA19A174942F7F4D0303BF8F25FDB37B;1337.
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 268.
+(rerunfilecheck)             Checksum: C25A7F0A3F02660EE3446170990CAD87;1938.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 353.
  ) 
 Here is how much of TeX's memory you used:
- 9032 strings out of 493488
- 123585 string characters out of 3141326
+ 9108 strings out of 493488
+ 125257 string characters out of 3141326
  230873 words of memory out of 3000000
- 12111 multiletter control sequences out of 15000+200000
+ 12152 multiletter control sequences out of 15000+200000
  19996 words of font info for 50 fonts, out of 3000000 for 9000
  957 hyphenation exceptions out of 8191
  41i,12n,43p,916b,1758s stack positions out of 5000i,500n,10000p,200000b,50000s
@@ -1138,10 +1351,10 @@ st/fonts/type1/public/cm-super/sfti1000.pfb></usr/local/texlive/2012/texmf-dist
 /fonts/type1/public/cm-super/sfti1728.pfb></usr/local/texlive/2012/texmf-dist/f
 onts/type1/public/cm-super/sftt1000.pfb></usr/local/texlive/2012/texmf-dist/fon
 ts/type1/public/cm-super/sfxc1728.pfb>
-Output written on Bruksanvisning.pdf (16 pages, 797244 bytes).
+Output written on Bruksanvisning.pdf (23 pages, 1153348 bytes).
 PDF statistics:
- 350 PDF objects out of 1000 (max. 8388607)
- 289 compressed objects within 3 object streams
- 77 named destinations out of 1000 (max. 500000)
- 219 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 452 PDF objects out of 1000 (max. 8388607)
+ 367 compressed objects within 4 object streams
+ 103 named destinations out of 1000 (max. 500000)
+ 323 words of extra memory for PDF output out of 10000 (max. 10000000)
 

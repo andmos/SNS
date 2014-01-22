@@ -18,4 +18,12 @@
 \BOOKMARK [2][-]{subsection.6.3}{3: Start fail2ban \(IPS Service\)}{section.6}% 18
 \BOOKMARK [2][-]{subsection.6.4}{4: Send mail}{section.6}% 19
 \BOOKMARK [2][-]{subsection.6.5}{5: Start networkmonitor}{section.6}% 20
-\BOOKMARK [1][-]{section.7}{Om kildekodens oppbyggning}{}% 21
+\BOOKMARK [2][-]{subsection.6.6}{6: Start webproxy}{section.6}% 21
+\BOOKMARK [2][-]{subsection.6.7}{7: Start VPN-Server}{section.6}% 22
+\BOOKMARK [2][-]{subsection.6.8}{8: Start RADIUS}{section.6}% 23
+\BOOKMARK [2][-]{subsection.6.9}{9: Start Snort \(IDS service\)}{section.6}% 24
+\BOOKMARK [2][-]{subsection.6.10}{10: Try out SQL - injection}{section.6}% 25
+\BOOKMARK [2][-]{subsection.6.11}{11: Look at database}{section.6}% 26
+\BOOKMARK [2][-]{subsection.6.12}{12: ForkBomb \(exit with ctrl + c}{section.6}% 27
+\BOOKMARK [2][-]{subsection.6.13}{13 og 14: Portscan og NMAP - analyse}{section.6}% 28
+\BOOKMARK [1][-]{section.7}{Om kildekodens oppbyggning}{}% 29
