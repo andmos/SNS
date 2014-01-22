@@ -1,5 +1,6 @@
 #! /bin/bash
 
+clear
 sudo service postfix restart > /dev/null
 
 echo "Enter recivers address:"
@@ -15,4 +16,10 @@ sleep 4
 
 sendEmail -f $fromAddress -t $toAddress -u $subject -o message-file=$message
 
-echo "For more advanced use of mail, use sendmail or similar."   
+echo "For more advanced use of mail, use sendmail or similar."
+
+sleep 2
+
+echo -e "Maillog:"
+/vagrant/bin/mailLog 
+
