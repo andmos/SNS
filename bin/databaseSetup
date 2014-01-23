@@ -1,6 +1,6 @@
 #! /bin/bash
 
-pass=$(</vagrant/mysqlpw.txt)
+pass=$(</vagrant/resources/passwords/mysqlpw.txt)
 
 echo "Importing databases:"
 echo "konto"
