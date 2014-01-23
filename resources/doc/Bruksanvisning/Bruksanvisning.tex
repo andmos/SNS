@@ -87,7 +87,9 @@ Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (
 \item OS: Operating System
 \item LAMP: Linux Apache MySql PHP
 \item ISP: Internet Service Provider
+\item IPS: Intrusion Preventning System
 \item DDOS: Distributed Denial-Of-Service
+\item NAT: Network Address Translation
 \end{itemize}
 \\
 \subsection{Referanser}
@@ -348,6 +350,189 @@ De to siste funksjonene er rett og slett script som kjører NMAP og portscan - a
 Selve angrepsdelen av prosjektet kan godt bygges på med flere skript.
 \end{lstlisting}
 \section{Om kildekodens oppbyggning}
-<her kommer beskrivelse av mappestruktur>
+For å forstå hvordan Simple Network Server fungerer og for å gjøre en utvidelse lettere, følger denne beskrivelsen av kildekoden. Her presenteres de viktigste elementene, mappe for mappe. Selve rota i prosjektmappa ser slik ut:  
+\\
+\\
+\includegraphics[scale = 0.580]{pictures/struktur.png}
+\\ 
+\\
+\subsection{Rotkatalogen}
+De viktigste filene på rota er ''Vagrantfile'' og ''freshInstallWeb''.
+Vagrantfile er selve ''oppskriften'' på hvordan prosjektet skal settes opp. Den gir instrukser til den virtuelle serveren som kjører i Virtualbox, på hvordan kommandoer som skal kjøres ved oppsett, samt hvilke porter som skal sendes hvor (den virtuelle maskinen er koblet til nettverket ved hjelp av NAT fra hovedmaskinen den kjører på). Kort fortalt, Vagrantfila er den viktigste fila i prosjektet, selve ''byggfila'' som starter prosjektet. Er ikke vagrantfila tilstede, går det ikke ann å kjøre ''vagrant up'' kommandoen. 
+\\ \\
+\newpage
+Vi tar en nærmere titt på fila:
+\begin{lstlisting}
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
 
+Vagrant::Config.run do |config|
+  config.vm.box = "Simple Network Server box"
+# To speed up the process under testing, just comment out unwanted modules
+  config.vm.box_url = "http://files.vagrantup.com/precise32.box"
+  config.vm.provision :shell, :path => "freshInstallWeb"
+  config.vm.provision :shell, :path => "bin/usersSetup"
+  config.vm.provision :shell, :path => "bin/databaseSetup"
+  config.vm.provision :shell, :path => "bin/mailInstall"
+  config.vm.provision :shell, :path => "bin/proxySetup"
+  config.vm.provision :shell, :path => "bin/vpnSetup"
+  config.vm.provision :shell, :path => "bin/radiusSetup"
+  config.vm.provision :shell, :path => "bin/snortSetup"
+  config.vm.provision :shell, :path => "bin/pythonDependencies"
+  config.vm.provision :shell, :path => "bin/disableBoot"
+  config.vm.provision :shell, :inline => "echo All done! Run 'vagrant ssh'"
+  config.vm.forward_port 80, 8080 #HTTP
+  config.vm.forward_port 443, 8443 #HTTPS
+  config.vm.forward_port 3306, 6612 #MySQL
+  config.vm.forward_port 25, 2525 #SMPT
+  config.vm.forward_port 3128, 3128 #Webproxy
+  config.vm.forward_port 943, 1886 #OpenVPN
+  config.vm.forward_port 1812, 3624 #FreeRadius
+  config.vm.forward_port 1813, 3626 #FreeRadius
+end
+\end{lstlisting}
+\\ 
+Vi begynner på toppen av config - elementet. Første linja er navnet den virtuelle boksen får, her satt til ''Simple Network Server Box''. 
+Neste linje viser til en URL hvor boksen lastes ned fra ved første gangs kjøring. Denne benyttes \textit{kun} hvis boksen ikke ligger lokalt på maskinen allerede.
+Så begynner selve oppsettet og konfigureringen. Som vi leser av linjene, kjøres en rekke shell - skript som har med oppsett av de ønskete tjenestene å gjøre. Vi kommer til disse skriptene senere, akkurat nå er det nok å få med seg navnekonvensjoner; de fleste ender på Setup. Dette betyr at skriptet som kjører installerer og setter opp en tjeneste på serveren. Ønsker man å fjerne en funksjonalitet fra serveren, foreks. RADIUS - tjenesten, er det bare å kommentere ut denne linja, og Setup - skriptet blir ignorert ved neste kjøring. Ønsker man å utvide Simple Network Server med flere tjenester, er det bare å skrive en liknende Setup - fil (oppbyggning kommer i delkapittel om /bin - mappa) og legge den til i lista her. \\
+Det siste Vagrant tar seg av er portforwards. Fordi den virtuelle maskinen kjører på sitt eget subnet via NAT, er det nødvendig med portforward av de portene som brukes av serveren. Her ser vi blant annet at port 80 (HTTPs standardport) kan nås på hovedmaskinens port 8080, 25 (SMTP) nås via 2525, MySQL - databasens port 3306 nås på 6612 osv. Ved utvidelse av prosjektet til flere tjenester som kommuniserer på bestemte porter, her det her man legger inn portforwarden. \\ \\
+Skulle man skrive inn noe feil i denne filen, vil Vagrant fortelle deg dette ved forsøk på ''vagrant up'' kommandoen. 
+\\ \\
+Neste fil ut er ''freshInstallWeb'' - skriptet. \\
+Dette er skriptet som står for grunnoppsettet av den virtuelle serveren. Det setter opp logfil, installerer grunnpakker, lagrer passord for databasen, setter opp velkomstmelding, og, ikke minst deler prosjektets rotmappe med den virtuelle serveren: Alt innhold i ''/SNS'' - mappa er lenket til den virtuelle maskinens webserver. Det vil si at alle filer som ligger her, er tilgjengelig fra \url{localhost:8080/}. Ønsker man å skrive nettsider for bruk av prosjektet, lagrer man bare .html eller .php - filene rett i rotmappa. Ser man seg rundt vil man se at både index.html (prosjektets standard ''Vagrant is up'' side) og bank.php, som brukes i forbindelse med punkt 6.10 ligger her. Denne mappa deles mellom den fysiske maskinen du kjører fra og den virtuelle serveren. Den nås via den virtuelle servern på ''/vagrant/'' fra kommandolinja. \\
+''freshInstallWeb'' - skriptet er også det første som kjøres når ''Vagrant up'' dras igang.
+\subsection{bin - katalogen}
+''bin'' - katalogen inneholder så og si alle kjørbare skript som er laget i forbindelse med prosjektet. pr. levering ser en utlisting av mappen slik ut: 
+\begin{lstlisting}
+Client              internip            passwordChanger     snortAlertLog
+SNSLog              ips                 portScan            snortInfo
+apacheAccessLog     ipsLog              postfixInstall      snortListeningMode
+apacheErrorLog      ipsMonitor          proxy               snortMonitor
+apacheLogMonitor    lib.sh              proxyLog            snortSetup
+databaseSetup       log-postfix.log     proxyMonitor        sqlInjectInfo
+disableBoot         mailInstall         proxySetup          usersSetup
+eksternip           mailLog             pythonDependencies  vpn
+firewallSetup       mailSender          radius              vpnLog
+firewallUpdateRule  meny                radiusSetup         vpnSetup
+forkBomb            networkMonitoring   showDatabase
+forkBombMonitor     nmapAnalysis        showRunningPrograms
+\end{lstlisting}
+\\
+Alle skriptene som ligger her følger  bestemte navnekonvensjoner: 
+\subsubsection{*Setup}
+Alle skript som slutter på ''Setup'' er oppsettsfiler, som installerer og konfigurerer nødvendige endringer for prosjektet. Hver funksjon har sin egen Setup, men i bunn og grunn er alle like. Vi ser på ''snortSetup'' som et eksempel:  
+\begin{lstlisting}
+#! /bin/bash
+
+echo "Setting up Snort and rules..."
+
+sudo debconf-set-selections <<< "snort snort/address_range string 10.0.2.15/32"
+sudo apt-get install snort -y > /dev/null 2>&1
+
+sudo rm /etc/snort/rules/*
+sudo cp /vagrant/resources/snortRules/* /etc/snort/rules/
+
+sudo service snort restart > /dev/null 2>&1
+
+echo "All done!"
+\end{lstlisting}
+Her skrives en passende melding om oppsett ut på skjermen, før informasjon som normalt blir spurt etter ved installasjon blir pakket inn i en variabel vha
+debconf set selections. Dette fordi vi ønsker at oppsett skal skje helt automatisk, \textit{ingen} innblanding fra bruker ønskes, alt oppsett skal skje automatisk. Det neste som skjer er at snort - pakken hentes ned fra Ubuntus pakkerepo, før vi kopierer inn våre egne regler fra /resources - katalogen. 
+Tjenesten restartes, og oppsett er ferdig. \\ \\
+Denne fila viser fint gangen i Setup - prosessen, de fleste filene er lik denne i oppbyggning.
+\subsubsection{*Log}
+Skrip som ender i ''Log'' gjør nettopp dette: de viser en runtime logg av tjenesten sin. Vi ser på ''apacheLogMonitor'':
+\begin{lstlisting}
+#! /bin/bash
+tail -f /var/log/apache2/access.log | ccze -A
+\end{lstlisting}
+Skriptet kjører rett og slett en tail av loggen, før den fargesetter den med ccze - programmet for å gjøre loggen mer leselig.  Slik ser alle loggerne ut. Grunnen til at vi har valgt å skripte en så enkel settning, er et ønske om abstraksjon: vi er ikke interesserte i funksjonen bak, vi vil kun huske prosessnavnet og at vi vil ha logg av det. 
+\subsubsection{*Monitor}
+''-Monitor'' skriptene er også veldig enkle og greie. De brukes for å presentere data om den aktuelle tjenesten du velger å kjøre, da gjerne ved å slå sammen 2 skrip i en visning som deler skjermen. ''ipsMonitor'':
+\begin{lstlisting}
+#! /bin/bash
+
+tmux new-session -d 'ips'
+tmux split-window -v 'ipsLog'
+
+tmux -2 attach-session -d
+\end{lstlisting}
+For å splitte skjermen i to, bruker vi tmux. Selve utførelsen av prosessen er 'ips' - skriptet, mens logen vises ved bruk av 'ipsLog''. 
+\subsubsection{Skript uten ending}
+Resten av skriptene har ikke noen klar ending. Som regel heter de det samme som en bestemt tjeneste, som foreks. ''ips'', ''radius'', ''showDatabase'', ''eksternIp'' osv. Dette er skript som starter de aktuelle tjenestene. Vi kan se på ''ips'' :
+\newpage
+\begin{lstlisting}
+#! /bin/bash
+
+clear
+if [ -z "$(pgrep squid3)" ]
+  then
+     sudo service squid3 start >> /var/log/SimpleNetworkServer.log
+  else
+     sudo service squid3 restart >> /var/log/SimpleNetworkServer.log
+fi
+
+echo "To use this proxy, set up youre webbrowser to use the following info as proxy-server:"
+echo "Webproxy: `curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"`:3128"
+echo -e "\n"
+echo "Blocked (http/https) sites: "
+cat /vagrant/resources/squidRules/blockedSites
+echo -e "\n"
+echo "To block more sites, edit /resources/squidRules/blockedSites"
+read enter
+\end{lstlisting}
+Den første if - settningen går igjen i så og si alle rene programstart - skript. Vi sjekker om prosessen kjører fra før, før vi endten starter den opp eller restarter, for å få en frisk og fin logg for tjenesten. Deretter følger litt informasjon til skjermen i form av echo - kommandoer. Her presenters IPen og porten man når webproxyen fra, før vi henter informasjon om hvile sider proxyen blokkerer fra ''/resources'' - mappa.
+\\ \\
+De fleste skriptene i ''bin'' mappa gjør det navnet tilsier, og er ment som en abstraksjon av tjenestene sine.
+\subsubsection{Client - mappa}
+Som subkatalog i ''bin'' - mappa finner vi ''Client''. Denne mappa inneholder programmer og skript som er ment for kjøring på \textit{klient,} altså ikke rett på den virtuelle serveren. Disse skriptene er gjerne angrepsskript som skal kjøres mot serveren. Et eksempel er skriptet ''ssh\_forcer.py'', som er et Python - skript som prøver å bruteforce SSH - pålogging på serveren, som en del av demonstrasjonen av et IPS - system: 
+\newpage
+\begin{lstlisting}
+#!/usr/bin/python
+import paramiko
+import itertools,string,crypt
+
+PASSSIZE = 5
+IPADDRESS = "127.0.0.1"
+USERNAME = "vagrant"
+SSHPORT=2222
+
+# Run /vagrant/bin/pythonDependencies.bash to get all dependencies.
+# Generates a password of containing only digits with a size of PASSSIZE
+
+var = itertools.combinations(string.digits,PASSSIZE)
+
+try:
+    for i in var:
+        passwd = ''.join(i)
+
+        ssh = paramiko.SSHClient()
+        ssh.load_system_host_keys()
+        ssh.set_missing_host_key_policy(paramiko.MissingHostKeyPolicy())
+
+        try:
+            ssh.connect(IPADDRESS , port=SSHPORT, username=USERNAME, password=passwd)
+            print "Connected successfully. Password = "+passwd
+            break
+        except paramiko.AuthenticationException, error:
+            print "Incorrect password: "+passwd
+
+        except socket.error, error:
+            print error
+
+        except paramiko.SSHException, error:
+            print error
+            print "Most probably this is caused by a missing host key"
+
+        except Exception, error:
+            print "Unknown error: "+error
+
+        ssh.close()
+
+
+except Exception,error :
+    print error
+\end{lstlisting}
+Det er ikke alt for mange skript i denne katalogen nå, men det er fritt fram å legge til. 
+\subsection{Resoruces - katalogen}
 \end{document}
