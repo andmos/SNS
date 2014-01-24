@@ -1,6 +1,0 @@
-#! /bin/bash
-echo "Installing radius"
-sudo /vagrant/bin/postfixInstall >> /var/log/install.log
-sudo apt-get install freeradius -y >> /var/log/install.log
-
-echo "All done!"
