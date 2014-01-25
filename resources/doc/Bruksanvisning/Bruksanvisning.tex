@@ -47,7 +47,7 @@
 \newpage
 \end{centering} 
 \fancyhead[L]{
-Simple Network Server		\hfill			 Version: 1.0 \\
+Simple Network Server		\hfill			 Version: 1.1 \\
 Detaljert Brukermanual 	\hfill			Date: \today  \\}
 \pagestyle{fancy}
 \setlength\headsep{30pt}
@@ -60,11 +60,11 @@ Detaljert Brukermanual 	\hfill			Date: \today  \\}
 	\hline	
 	Dato & Versjon & Beskrivelse & Forfatter\\ 
 	\hline
-	 02/02/13> & 1.0 & Established requirements document & Andreas Mosti og Thomas Mowatt\\ 
+	 25/01/14 & 1.0 & Første versjon ferdigstilt & Andreas Mosti og Thomas Mowatt\\ 
 	\hline
-	<25/02/13> & 1.1 & Edited document according to the feedback & Andreas Mosti og Thomas Mowatt\\ 
+	25/01/14 & 1.1  & Rettskrivning og revisjon  & Andreas Mosti og Thomas Mowatt \\ 
 	\hline
-	<28/04/13> & 1.2 & Final version & Andreas Mosti og Thomas Mowatt\\ 
+	 &  &  & \\ 
 	\hline
 	
 	\end{tabular}
@@ -100,7 +100,7 @@ Dette dokumentet omhandler bruk av hele systemet. \\ Beskrevet miljø er Linux (
 \end{itemize}
 \subsection{Innholdsoversikt}
 \section{Kort om Simple Network Server}
-Simple Network Server (SNS) er et ferdig, utvidbart virtuelt servermiljø basert på Ubuntu Linux som inneholder programmvare og verktøy tilpasset faget LV473D -Nettverkssikkerhet. 
+Simple Network Server (SNS) er et ferdig, utvidbart virtuelt servermiljø basert på Ubuntu Linux som inneholder programmvare og verktøy tilpasset faget LV473D -Nettverkssikkerhet. Systemet er ment for kjapp installasjon av et ferdig servermiljø basert på verktøyene Vagrant og Virtualbox. Versjon 1.0 er ment som et rammeoppsett med grunnnfunksjonalitet, selv om videre utvidelse anbefales etter behov.
 \section{Testoppsett}
 Denne manualen er skrevet ut ifra gjennomgang og bruk på våre testoppsett og fungerer 100\%. Disse er idag: 
 \begin{itemize}
@@ -110,10 +110,10 @@ Denne manualen er skrevet ut ifra gjennomgang og bruk på våre testoppsett og f
 \item Ubuntu ''Precise Pangolin'' 12.04LTS, 64 bit
 \item Ubuntu ''Saucy Salamander' 13.10, 64 bit
 \end{itemize}
-\section{Installasjon og grunnoppsett}
+\section{Installasjon og grunnnoppsett}
 For å ta i bruk Simple Network Server - oppsettet for første gang må man først installere to avhengigheter samt hente ned prosjektet. Vi begynner programvare som kreves:
 \subsection{Virtualbox}
-Siden SNS er en virtuell løsning, må virtualiseringsløsningen virtualbox tas i bruk. Virtualbox er gratis, og kan lastes ned via \url{https://www.virtualbox.org/wiki/Download_Old_Builds} for Linux og Mac. Pakken kan også lastes rett fra pakkerepoet til Debian / Ubuntu: \\ 
+Siden SNS bygges opp rundt en virtuell server, må virtualiseringsløsningen virtualbox tas i bruk. Virtualbox er gratis, og kan lastes ned via \url{https://www.virtualbox.org/wiki/Download_Old_Builds} for Linux og Mac. Pakken kan også lastes rett fra pakkerepoet til Debian / Ubuntu: \\ 
 \begin{lstlisting}
 sudo apt-get install virtualbox
 \end{lstlisting}
@@ -125,9 +125,9 @@ sudo port install virtualbox
 \\
 Testet og anbefalt versjon er virtualbox 4.1.18. 
 \subsection{Vagrant}
-Den neste nødvendige programmvaren er Vagrant. Vagrant er det virtuelle miljøet SNS benytter for å kjøre, og er ment for å lage virtuelle utviklermiljøer som fokuserer på å skape like utvikleroppsett for alle som jobber på et delt prosjekt, ved bruk av vagrant vil prosjektets oppsett se likt ut for alle som tar det i bruk. Som utviklerne av Vagrant selv beskriver det: 
+Den neste nødvendige programmvaren er Vagrant. Vagrant er det virtuelle miljøet SNS benytter for å kjøre, og er ment for å lage virtuelle utviklermiljøer som fokuserer på å skape identiske maskinoppsett for alle som jobber på et delt prosjekt. Ved bruk av Vagrant vil prosjektet oppføre seg likt for alle som tar det i bruk. Som utviklerne av Vagrant selv beskriver det: 
 \begin{quote}
-''Vagrant is a tool for building complete development environments. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases development/production parity, and makes the ''works on my machine'' excuse a relic of the past.''
+''Vagrant is a tool for building complete development environments. With an easy-to-use workflow and focus on automation, Vagrant lowers development environment setup time, increases development/production parity, and makes the ''works on my machine'' excuse a relic of the past.''\footnote{\url{https://www.vagrantup.com/about.html}}
 \end{quote}
 For å installere Vagrant, last ned fra \url{http://downloads.vagrantup.com} for Linux og Mac. \\
  Pakken kan også lastes rett fra pakkerepoet til Debian / Ubuntu: \\ 
@@ -150,7 +150,7 @@ Selve kildekoden til SNS hentes fra github for enklest installasjon:
 git clone https://github.com/andmos/SNS
 \end{lstlisting}
 \\
-Nå kjøres prosjektet for første gang enkelt: 
+Nå kjøres prosjektet for første gang enkelt ved å skrive følgene i kommandolinja: 
 \begin{lstlisting}
 cd SNS/
 vagrant up
@@ -160,7 +160,7 @@ Et virtuelt Ubuntu - image vil nå lastes ned (skjer kun ved første gangs kjør
 Skjermbildet ved første gangs innhenting av image ser slik ut: \\ \\
 \includegraphics[scale = 0.7]{pictures/vagrantFirstTime.png}
 \\ \\
-Dette imaget er det vagrant kaller en ''box''. Den fungerer som grunnimage, og nedlastning skjer som sagt kun ved første gangs bygg av prosjektet. Ved alle nyoppsett av systemet vil imaget brukes som grunn-OS for prosjektfilene til SNS, eller en såkalt ''sandbox''. Boksen kan lokaliseres i den skjulte mappa ''./vagrant.d'' på hjemmekatalogen til brukeren din. \\ \\
+Dette imaget er det vagrant kaller en ''box''. Den fungerer som grunnnimage, og nedlastning skjer som sagt kun ved første gangs bygg av prosjektet. Ved alle nyoppsett av systemet vil imaget brukes som grunnn-OS for prosjektfilene til SNS, eller en såkalt ''sandbox''. Boksen kan lokaliseres i den skjulte mappa ''./vagrant.d'' på hjemmekatalogen til brukeren din. \\ \\
 For å sjekke at den virtuelle maskinen fungerer som den skal, gå til \url{http://localhost:8080/} fra nettleseren din. Du vil da få opp denne siden:
 \\ \\
 \includegraphics[scale = 0.7]{pictures/vagrantWorks.png} 
@@ -215,7 +215,7 @@ vagrant ssh
 Man blir da møtt av følgende skjermbilde: \\ \\
 \includegraphics[scale = 0.7]{pictures/vagrantSSH.png}
 \\ \\
-og kan nå bruke alle verktøyene SNS tilbyr enkelt via kommandolinja, hovedsaklig via ''meny'' kommandoen for enkelhets skyld. Det er vert å merke seg at SNS - maskinen er en fullverdig virtuell Ubuntu - maskin, så all Linux - funksjonalitet utenfor prosjektets verktøy kan fritt brukes og / eller installeres. \\ 
+og kan nå bruke alle verktøyene SNS tilbyr enkelt via kommandolinja, hovedsaklig via ''meny'' kommandoen for enkelhets skyld. Det er verdt å merke seg at SNS - maskinen er en fullverdig virtuell Ubuntu - maskin, så all Linux - funksjonalitet utenfor prosjektets verktøy kan fritt brukes og / eller installeres. \\ 
 Når man er ferdig med maskinen, avslutter man SSH - sesjonen og skriver: \\
 \begin{lstlisting}
 vagrant destroy
@@ -227,14 +227,14 @@ For å benytte seg av funksjonaliteten som er bygget inn i SNS har vi laget en o
 \\ \\
 \includegraphics[scale=0.8]{pictures/meny.png} 
 \\ \\
-I dette avsnittet går vi gjennom hver av disse valgene, med forslag til bruk og utvidelse.  
+I dette avsnittet går vi gjennom hver av disse valgene, med forslag til bruk og utvidelse. 
 \subsection{1: Start firewall}
 Det første valget starter et skript som er tilpassed demonostrasjon av brannmur. \\ Her er funksjonaliteten ganske enkel: et skript starte brannmurprogrammvaren (ufw, abstraksjonslag oppå iptables) og laster inn en på forhånd oppsatt konfigurasjon som låser ned serveren, med unntak av portene som aktivt brukes i SNS som åpnes. Når skriptet er ferdig, dukker en oversikt over de åpne portene opp. 
 \\ \\
 \includegraphics[scale = 0.7]{pictures/firewall.png}
 \\ \\ 
-Som vi ser av bildet, er de portene som er markert som åpne inn kun de som er ibruk av Simple Network Server. 
-For å demonstrere brannmurendringern, kan skriptet 'firewallUpdateRule' kjøres rett fra kommandolinja. Dette skriptet er skrevet for enkelt og greit å gjøre endringer i aksesspolicyen til portene på serveren. Du velger om en port skal åpnes eller lukkes, og får da ny oversikt over portene på serveren. Dette for å lett kunne demonstrere brannmurens virkemåte. Eksemplel på bruk kan være å stenge port 80, for så å besøkle \url{http://localhost:8080} og se at aksessen nå er sperret. Anne bruk kan være å kjøre portscanner mot serverens adresse og se på åpne porter. 
+Som vi ser av bildet, er de portene som er markert som åpne inn kun de som er i bruk av Simple Network Server. 
+For å demonstrere brannmurendringern, kan skriptet 'firewallUpdateRule' kjøres rett fra kommandolinja. Dette skriptet er skrevet for enkelt og greit å gjøre endringer i aksesspolicyen til portene på serveren. Du velger om en port skal åpnes eller lukkes, og får da ny oversikt over portene på serveren. Dette for å lett kunne demonstrere brannmurens virkemåte. Eksempel på bruk kan være å stenge port 80, for så å besøke \url{http://localhost:8080} og se at aksessen nå er sperret. Annen bruk kan være å kjøre portscanner mot serverens adresse og se på åpne porter. 
 \\ \\ 
 \includegraphics[scale =0.7]{pictures/firewallUpdate.png}
 \\ \\
@@ -246,25 +246,25 @@ Dette valget er ganske rett fram; et tilpasset skript deler skjermen i to og vis
 \\ \\
 Bildet viser eksempel på loggoppføring ved vanlig besøk på innhold hostet av webtjeneren. Leg merke til advarsel om fil som ikke eksisterer, denne feilen er framprovosert for å vise feil i loggen. Eksempel på bruk kan være å se hva som skjer i loggen om en modifisert get - request blir sendt. 
 \subsection{3: Start fail2ban (IPS Service)}
-En av de mest effektife Intrusion Prevention System - tjenestene der ute er fail2ban. Den banner rett og slett IP - adresser som prøver seg på bruteforce - angrep på serveren. Tjenesten starter rett og slett fail2ban etter en gitt tid. For å demonstrere bruk av fail2ban kan python-skriptet ''ssh\_forcer.py'' kjøres fra host - maskinen. Skriptet ligger på ''SNS/bin/Client/ssh\_forcer.py''. Skriptet trenger noen pakker for python, som kan skaffes ved å kjøre ''SNS/bin/pythonDependencies''. Skriptet vil prøve å brutforce SSH - login på SSN - serveren, passordforsøk på passordforsøk. Ved å aktivere fail2ban, kan man se at angrepsforsøkene stopper fordi IPen til slutt blir bannet. Effektiv demo av en IPS sine egenskaper: Den gjør aktive tiltak mot angriper.
+En av de mest effektive Intrusion Prevention System - tjenestene der ute er fail2ban. Den banner rett og slett IP - adresser som prøver seg på bruteforce - angrep på serveren. Tjenesten starter fail2ban etter en gitt tid. For å demonstrere bruk av fail2ban kan python-skriptet ''ssh\_forcer.py'' kjøres fra host - maskinen. Skriptet ligger på ''SNS/bin/Client/ssh\_forcer.py''. Skriptet trenger noen pakker for python, som kan skaffes ved å kjøre ''SNS/bin/pythonDependencies''. Skriptet vil prøve å brutforce SSH - login på SSN - serveren, passordforsøk på passordforsøk. Ved å aktivere fail2ban, kan man se at angrepsforsøkene stopper fordi IPen til slutt blir bannet. Effektiv demo av en IPS sine egenskaper: Den gjør aktive tiltak mot angriper.
 \\ \\
 \includegraphics[scale = 0.5]{pictures/ips.png}
 \\ \\
 Bildet viser bruk av ssh\_forcer og IPS - pakken. Her får angriper prøvd seg 7 ganger før fail2ban starter og får sendt IPen i ''fengsel''. Utvidelse her kan være bruteforce - forsøk på HTTP - serveren. 
 \subsection{4: Send mail}
-Dette valget er ment som en demonstrasjon av hvor enkelt det er å sende epost med falsk avsender, som igjen kan føre til både pishingforsøk og spam. I dag regnes hele 80 - 85 \% av all mailtrafikk som spam.\footnote{Kilde: https://en.wikipedia.org/wiki/Spam_\%28electronic\%29#cite_note-4} Skriptet som starter mailsendingen spør deg om mottakeradresse (NB: ikke benytt skriptet uten at mottaker er klar over det!) og en ønsket avsenderadresses. Etter noen sekunder sendes mailen ut fra serveren, med en standard tekst som ligger lagret på ''/SNS/resources/doc/MailMessage''. \\ OBS: For at denne funksjonaliteten skal funke kan man \textit{ikke} være bak brannmur som stopper trafikk på SMTP - porten. Vanlige ISPer som Canal Digital osv. stopper trafikk her. Dette er derimot ikke et problem på HiST, hvor SNS hovedsaklig skal brukes. 
+Dette valget er ment som en demonstrasjon av hvor enkelt det er å sende epost med falsk avsender, som igjen kan føre til både phishingforsøk og spam. I dag regnes hele 80 - 85 \% av all mailtrafikk som spam.\footnote{Kilde: https://en.wikipedia.org/wiki/Spam_\%28electronic\%29#cite_note-4} Skriptet som starter mailsendingen spør deg om mottakeradresse (NB: ikke benytt skriptet uten at mottaker er klar over det!) og en ønsket avsenderadresses. Etter noen sekunder sendes mailen ut fra serveren, med en standard tekst som ligger lagret på ''/SNS/resources/doc/MailMessage''. \\ OBS: For at denne funksjonaliteten skal funke kan man \textit{ikke} være bak brannmur som stopper trafikk på SMTP - porten. Vanlige ISPer som Canal Digital osv. stopper trafikk her. Dette er derimot ikke et problem på HiST, hvor SNS hovedsaklig skal brukes. 
 \\ \\
 \includegraphics[scale = 0.7]{pictures/mailsender.png}
 \\ \\ 
-Her ser vi bruk av mailsender, hvor Bill Gates tilsynelatende har sendt mail. Men, som teksten sier, burde man sjekke mailheaderen for å se om avsender er den han er. Videre bruk av tjenesten kan være å lage til en phising - mal som sendes, for å demonstrere hvor enkelt det er å lage en tilsynelatende ekte mail fra foreks. banken din. Et annet bruksmønster er å overvåke pakkene som går; tjenesten er lagt opp til å sende mail uten kryptering, så alt går i klartekst. Dette er også grunnen til at mailen venter 4 sekunder før den sendes, så foreks. Wireshark kan rettes mot serverens IP for se på pakkene som går. 
+Her ser vi bruk av mailsender, hvor Bill Gates tilsynelatende har sendt mail. Men, som teksten sier, burde man sjekke mailheaderen for å se om avsender er den han er. Videre bruk av tjenesten kan være å lage til en phising - mal som sendes, for å demonstrere hvor enkelt det er å lage en tilsynelatende ekte mail fra foreks. banken din. Et annet bruksmønster er å overvåke pakkene som går; tjenesten er lagt opp til å sende mail uten kryptering, så alt går i klartekst. Dette er også grunnnen til at mailen venter 4 sekunder før den sendes, så foreks. Wireshark kan rettes mot serverens IP for se på pakkene som går. 
 \subsection{5: Start networkmonitor}
-Dette valget er en nettverksmonitor satt sammen av programmene Nethogs og Iftop. Nethogs viser hvilke kjørende prosesser som genererer nettverkstrafikk, både innkommende og utgående, mens Iftop viser trafikk på eth0 - kortet, altså nettverkskortet på serveren. iftop viser hvilke IPer som blir kommunisert med, og hvor mye trafikk som går. Fordi SNS er bygget opp fra grun av med \textit{kun} den funksjonaliteten vi ønsker for å demonstrere forskjellige aspekter ved faget Nettverkssikkerhet, vil det være få prosesser som kjører (SNS er programmert til å blokkere alle tjenestene fra oppstart, de blir kun aktive når du velge å bruke dem) som igjen fører til en ren og ryddig logg: den blir ikke oversvømt av prosesser som bruker nettverk. Dette verktøyet er derfor veldig fint å bruke for å demonstrere hvordan prosesser bruker trafikk inn / ut av serveren. 
+Dette valget er en nettverksmonitor satt sammen av programmene Nethogs og Iftop. Nethogs viser hvilke kjørende prosesser som genererer nettverkstrafikk, både innkommende og utgående, mens Iftop viser trafikk på eth0 - kortet, altså nettverkskortet på serveren. iftop viser hvilke IPer som blir kommunisert med, og hvor mye trafikk som går. Fordi SNS er bygget opp fra grunn av med \textit{kun} den funksjonaliteten vi ønsker for å demonstrere forskjellige aspekter ved faget Nettverkssikkerhet, vil det være få prosesser som kjører (SNS er programmert til å blokkere alle tjenestene fra oppstart, de blir kun aktive når du velge å bruke dem) som igjen fører til en ren og ryddig logg: den blir ikke oversvømt av prosesser som bruker nettverk. Dette verktøyet er derfor veldig fint å bruke for å demonstrere hvordan prosesser bruker trafikk inn / ut av serveren. 
 \\ \\
 \includegraphics[scale = 0.6]{pictures/networkmonitor.png} 
 \\ \\
 Det øverste vinduet er Nethogs, som her kun viser en aktiv prosess som bruker av nettverket, nemmlig SSH, som jeg kommuniserer med serveren via. \\ 
 Nedenfor ser vi iftop som melder om trafikk fra serveren til 10.0.2.2 som er hostmaskinens IP, samt trafikk til Signal, som er ISP der serveren står.
-Forslag bruk av denne netverksmonitoren er som nevnt å vise hvordan trafikk til / fra serveren vises, og man kan demonstrere hvor greit det er å holde orden på hvilke prosesser som bruker nettverksresurser i systemet. Skulle serveren bli kompromitert og bli en del av et botnet, kan man da helt klart se av monitoren om noe genererer mye trafikk. 
+Forslag bruk av denne nettverksmonitoren er som nevnt å vise hvordan trafikk til / fra serveren vises, og man kan demonstrere hvor greit det er å holde orden på hvilke prosesser som bruker nettverksresurser i systemet. Skulle serveren bli kompromitert og bli en del av et botnet, kan man da helt klart se av monitoren om noe genererer mye trafikk. 
 \subsection{6: Start webproxy}
 For å demonstrere hvordan webtrafikk kan dirigeres gjennom en proxy, har vi satt opp en egen tjeneste basert på webproxyen squid3. Når denne tjenesten starter, får man opp en todelt skjerm: den øverste delen viser informasjon om adresse og port til proxyen, samt informasjon om blokkede nettsider. Man kan enkelt benytte denne proxyen fra klientmaskinene på samme nett, ved å konfigurere nettleseren din. Å bruke webproxy er en fin måte for arbeidsgivere å kontrollere hvilke nettsider som besøkes, samt blokke uønskede tidstyver som facebook. Den andre delen av skjermen viser loggen til proxyen, med informasjon om hvem som har besøkt hvilke sider. \\
 For å angi andre blokkede sider, rediger følgende fil: ''/SNS/resources/squidRules/blockedSites''. I ''squidRules'' - mappa ligger også konfigurasjonsfilen til proxytjenesten.
@@ -302,7 +302,7 @@ En av de nyttigste verktøyene i nettverksmonitoreringskassa er et Intrusion Det
 \includegraphics[scale = 0.7]{pictures/snort.png}
 \\
 \\
-Bildet over viser Snort skriptet vårt under bruk. Her kjøres en nettverkskortlegging via NMAP ut fra serveren, og Snort varsler om at trafikken kan være en del av et DDOS - angrep, samt at porter blir scannet. Regelsett for Snort lastes inn fra ''/SNS/resources/snortRules'', så en utvidelse med nye regler kan fint legges i denne mappa, og de vil da automatisk bli lagt inn til Snort ved oppstart av SNS. Ellers står man fritt til å bruke forskjellige angrepsteknikker mot serveren, for å se hvordan systemet ser ut. 
+Bildet over viser Snort skriptet vårt under bruk. Her kjøres en nettverkskartlegging via NMAP ut fra serveren, og Snort varsler om at trafikken kan være en del av et DDOS - angrep, samt at porter blir scannet. Regelsett for Snort lastes inn fra ''/SNS/resources/snortRules'', så en utvidelse med nye regler kan fint legges i denne mappa, og de vil da automatisk bli lagt inn til Snort ved oppstart av SNS. Ellers står man fritt til å bruke forskjellige angrepsteknikker mot serveren, for å se hvordan systemet ser ut. 
 \subsection{10: Try out SQL - injection}
 Et potensielt stort sikkerhetsproblem i nett er dårlig oppsatte / programmerte webtjenere. For å demonstrere dette har vi satt sammen en MySQL - database med ''kontoer'', og en frontend skrevet i PHP. Denne siden er ment som eksempel på en enkel nettbank: Du logger deg inn med brukernavn og passord, og får tilgang til kontoopplysningene dine, som ligger i databasen. For å demonstrere dårlig skrevet kode, har vi bevisst laget login - formen uten å sikre siden mot SQL - injections. 
 \\
@@ -326,8 +326,8 @@ SELECT * FROM konto WHERE kontoeier = 'thomas'-- ' AND passord= 'pass'
 Forslag til bruk er å ha en konkurranse blant elevene i forelesningen, om hvem som klarer å bryte seg inn kjappest. 
 \subsection{11: Look at database}
 Denne funksjonen er ment som en utvidelse av SQL-Inject - funksjonen. Det eneste den gjør er å mappe ut ''Konto'' tabellen, med brukernavn, passord og saldo. Kan brukes som fasit, eller bare for å se på basen. Alle SQL - filene ligger lagret på ''/SNS/resources/databases'', og blir lastet inn til MySQL - basen ved oppstart. Man kan derfor fritt legge til flere databaser for import her.
-\subsection{12: ForkBomb (exit with ctrl + c}
-Nå er vi over på et par angresskript som er skrevet som eksempler til prosjektet. ForkBomben viser hva som skjer om en bruker på en Linux - server ikke har begrensninger på hvor mange prosesser han kan kjøre. ForkBomben er meget enkel: 
+\subsection{12: ForkBomb (exit with ctrl + c)}
+Nå er vi over på et par angresskript som er skrevet som eksempler til prosjektet. ForkBomben viser hva som skjer om en bruker på en Linux - server ikke har begrensninger på hvor mange prosesser han kan kjøre, noe som kan demonstrere en dårlig oppsatt terminalserver. ForkBomben er meget enkel: 
 \begin{lstlisting}
 #! /usr/bin/perl
 # Careful about this, use only if you know what you are doing
@@ -346,7 +346,7 @@ Skriptet genererer rett og slett en ny prosess for hver gjennomgang, altså n fo
 \\
 Bildet viser kjøring av ForkBomb, som her bruker 87\% CPU, og har til nå generert 2924 prosesser. 
 \subsection{13 og 14: Portscan og NMAP - analyse}
-De to siste funksjonene er rett og slett script som kjører NMAP og portscan - analyse av serveren, rett og slett for å vise hvor kraftig NMAP er. 
+De to siste funksjonene er script som kjører NMAP og portscan - analyse av serveren, rett og slett for å vise hvor kraftig NMAP er. 
 Selve angrepsdelen av prosjektet kan godt bygges på med flere skript.
 \end{lstlisting}
 \section{Om kildekodens oppbyggning}
@@ -399,7 +399,7 @@ Det siste Vagrant tar seg av er portforwards. Fordi den virtuelle maskinen kjør
 Skulle man skrive inn noe feil i denne filen, vil Vagrant fortelle deg dette ved forsøk på ''vagrant up'' kommandoen. 
 \\ \\
 Neste fil ut er ''freshInstallWeb'' - skriptet. \\
-Dette er skriptet som står for grunnoppsettet av den virtuelle serveren. Det setter opp logfil, installerer grunnpakker, lagrer passord for databasen, setter opp velkomstmelding, og, ikke minst deler prosjektets rotmappe med den virtuelle serveren: Alt innhold i ''/SNS'' - mappa er lenket til den virtuelle maskinens webserver. Det vil si at alle filer som ligger her, er tilgjengelig fra \url{localhost:8080/}. Ønsker man å skrive nettsider for bruk av prosjektet, lagrer man bare .html eller .php - filene rett i rotmappa. Ser man seg rundt vil man se at både index.html (prosjektets standard ''Vagrant is up'' side) og bank.php, som brukes i forbindelse med punkt 6.10 ligger her. Denne mappa deles mellom den fysiske maskinen du kjører fra og den virtuelle serveren. Den nås via den virtuelle servern på ''/vagrant/'' fra kommandolinja. \\
+Dette er skriptet som står for grunnnoppsettet av den virtuelle serveren. Det setter opp logfil, installerer grunnnpakker, lagrer passord for databasen, setter opp velkomstmelding, og, ikke minst deler prosjektets rotmappe med den virtuelle serveren: Alt innhold i ''/SNS'' - mappa er lenket til den virtuelle maskinens webserver. Det vil si at alle filer som ligger her, er tilgjengelig fra \url{localhost:8080/}. Ønsker man å skrive nettsider for bruk av prosjektet, lagrer man bare .html eller .php - filene rett i rotmappa. Ser man seg rundt vil man se at både index.html (prosjektets standard ''Vagrant is up'' side) og bank.php, som brukes i forbindelse med punkt 6.10 ligger her. Denne mappa deles mellom den fysiske maskinen du kjører fra og den virtuelle serveren. Den nås via den virtuelle servern på ''/vagrant/'' fra kommandolinja. \\
 ''freshInstallWeb'' - skriptet er også det første som kjøres når ''Vagrant up'' dras igang.
 \subsection{bin - katalogen}
 ''bin'' - katalogen inneholder så og si alle kjørbare skript som er laget i forbindelse med prosjektet. pr. levering ser en utlisting av mappen slik ut: 
@@ -420,7 +420,7 @@ forkBombMonitor     nmapAnalysis        showRunningPrograms
 \\
 Alle skriptene som ligger her følger  bestemte navnekonvensjoner: 
 \subsubsection{*Setup}
-Alle skript som slutter på ''Setup'' er oppsettsfiler, som installerer og konfigurerer nødvendige endringer for prosjektet. Hver funksjon har sin egen Setup, men i bunn og grunn er alle like. Vi ser på ''snortSetup'' som et eksempel:  
+Alle skript som slutter på ''Setup'' er oppsettsfiler, som installerer og konfigurerer nødvendige endringer for prosjektet. Hver funksjon har sin egen Setup, men i bunn og grunnn er alle like. Vi ser på ''snortSetup'' som et eksempel:  
 \begin{lstlisting}
 #! /bin/bash
 
@@ -446,7 +446,7 @@ Skrip som ender i ''Log'' gjør nettopp dette: de viser en runtime logg av tjene
 #! /bin/bash
 tail -f /var/log/apache2/access.log | ccze -A
 \end{lstlisting}
-Skriptet kjører rett og slett en tail av loggen, før den fargesetter den med ccze - programmet for å gjøre loggen mer leselig.  Slik ser alle loggerne ut. Grunnen til at vi har valgt å skripte en så enkel settning, er et ønske om abstraksjon: vi er ikke interesserte i funksjonen bak, vi vil kun huske prosessnavnet og at vi vil ha logg av det. 
+Skriptet kjører rett og slett en tail av loggen, før den fargesetter den med ccze - programmet for å gjøre loggen mer leselig.  Slik ser alle loggerne ut. grunnnen til at vi har valgt å skripte en så enkel settning, er et ønske om abstraksjon: vi er ikke interesserte i funksjonen bak, vi vil kun huske prosessnavnet og at vi vil ha logg av det. 
 \subsubsection{*Monitor}
 ''-Monitor'' skriptene er også veldig enkle og greie. De brukes for å presentere data om den aktuelle tjenesten du velger å kjøre, da gjerne ved å slå sammen 2 skrip i en visning som deler skjermen. ''ipsMonitor'':
 \begin{lstlisting}
@@ -534,5 +534,31 @@ except Exception,error :
     print error
 \end{lstlisting}
 Det er ikke alt for mange skript i denne katalogen nå, men det er fritt fram å legge til. 
+NB: bin - katalogen blir ved oppstrat også kopiert inn til \$PATH, så alle program og kode som ligger her kan nås direkte fra kommandolinja, uansett hvor du er i systemet. Dette er også en av grunnnene til at navnene på programmene er holdt korte og konsise.
 \subsection{Resoruces - katalogen}
+Den siste av de to katalogene i rotmappa er Resources - katalogen. Den inneholder, som navnet sier, resurser som brukes underveis, og har følgende subtre: 
+\begin{lstlisting}
+|--- databases
+|--- doc
+      |--- Bruksanvisning
+             |--- pictures
+             |--- title
+|--- dotfiles
+|--- passwords
+|--- radius
+|--- snortRules
+|--- squidRules
+\end{lstlisting}
+\begin{itemize}
+\item databases: 
+Inneholder SQL - skriptene som setter opp prosjektets databaser. Disse er idag Konto - databasen, samt en Snort - database det ikke er lagt inn støtte for enda.
+\item doc:
+Her ligger denne brukermanualen, både som PDF og med \TeX{} - fil for revisjon, samt en mye kortere installasjonsveiledning skrevet i Markdown. I tillegg ligger standardteksten for mail - tjenesten her.
+\item dotfiles:
+dotfiles - katalogen inneholder konfigurasjonsfiler som begynner med en ''.'', som foreksempel .vimrc, som gir oss en fin brukerprofil til Vim. Ønsker man egenkonfigurert .bashrc, kan denne legges inn her, og kopieres inn via oppsettsskriptene. 
+\item password:
+Inneholder passordfiler, slik at passord ikke blir stående i klartekst i skriptene. Filene kan skjules og / eller låses ned tilgang på.
+\item radius: Inneholder .config - filer for radiustjenesten som kopieres inn i systemet ved oppsett. Eventuelle endringer gjøres derfor her.
+\item snortRules: Inneholder regelsett for Snort, som settes opp på oppstart. Nye regler legges enkelt til her ved utvidelse.
+\item squidRules: Også denne katalogen inneholder regelsett og .config - filer for squid3, altså webproxyen. Her ligger blant annet tekstfila som holder styr på blokkerte nettsider.
 \end{document}
