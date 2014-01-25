@@ -4,9 +4,9 @@ pass=$(</vagrant/userpw.txt)
 
 if [ -z "$(pgrep openvpnas)" ]
     then
-        sudo service openvpnas start > /dev/null 
+        sudo service openvpnas start >> /var/log/SimpleNetworkServer.log 
     else
-        sudo service openvpnas restart > /dev/null
+        sudo service openvpnas restart >> /var/log/SimpleNetworkServer.log
 fi
 
 echo "Open VPN in browser(use HTTPS) : https://`curl -s checkip.dyndns.com | grep -Eo "[0-9]+\.[0-9]+\.[0-9]+\.[0-9]+"`:1886

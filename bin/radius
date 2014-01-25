@@ -7,9 +7,9 @@ sleep 4
 
 if [ -z "$(pgrep freeradius)" ]
       then
-        sudo service freeradius start > /var/log/SimpleNetworkServer.log
+        sudo service freeradius start >> /var/log/SimpleNetworkServer.log
       else
-        sudo service freeradius restart > /var/log/SimpleNetworkServer.log
+        sudo service freeradius restart >> /var/log/SimpleNetworkServer.log
        fi
 echo "Testing radius from localhost: "
 echo -e "\n"

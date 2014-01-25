@@ -10,9 +10,9 @@ sleep 3
 
 if [ -z "$(pgrep fail2ban)" ]
     then 
-      sudo service fail2ban start > /var/log/SimpleNetworkServer.log
+      sudo service fail2ban start >> /var/log/SimpleNetworkServer.log
     else 
-      sudo service fail2ban restart > /var/log/SimpleNetworkServer.log
+      sudo service fail2ban restart >> /var/log/SimpleNetworkServer.log
     fi
 echo -e "${GREEN} Started"
 echo -en "${RESTORE}"
