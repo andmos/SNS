@@ -400,7 +400,8 @@ Skulle man skrive inn noe feil i denne filen, vil Vagrant fortelle deg dette ved
 \\ \\
 Neste fil ut er ''freshInstallWeb'' - skriptet. \\
 Dette er skriptet som står for grunnnoppsettet av den virtuelle serveren. Det setter opp logfil, installerer grunnnpakker, lagrer passord for databasen, setter opp velkomstmelding, og, ikke minst deler prosjektets rotmappe med den virtuelle serveren: Alt innhold i ''/SNS'' - mappa er lenket til den virtuelle maskinens webserver. Det vil si at alle filer som ligger her, er tilgjengelig fra \url{localhost:8080/}. Ønsker man å skrive nettsider for bruk av prosjektet, lagrer man bare .html eller .php - filene rett i rotmappa. Ser man seg rundt vil man se at både index.html (prosjektets standard ''Vagrant is up'' side) og bank.php, som brukes i forbindelse med punkt 6.10 ligger her. Denne mappa deles mellom den fysiske maskinen du kjører fra og den virtuelle serveren. Den nås via den virtuelle servern på ''/vagrant/'' fra kommandolinja. \\
-''freshInstallWeb'' - skriptet er også det første som kjøres når ''Vagrant up'' dras igang.
+''freshInstallWeb'' - skriptet er også det første som kjøres når ''Vagrant up'' dras igang, og setter opp logging til
+''/var/log/SimpleNetworkServer.log'', som tjenestene benytter til standard logging.
 \subsection{bin - katalogen}
 ''bin'' - katalogen inneholder så og si alle kjørbare skript som er laget i forbindelse med prosjektet. pr. levering ser en utlisting av mappen slik ut: 
 \begin{lstlisting}
