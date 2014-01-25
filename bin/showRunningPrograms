@@ -5,7 +5,7 @@ RESTORE='\033[0m'
 GREEN='\033[00;32m'
 YELLOW='\033[00;33m'
 
-programs="apache2 fail2ban postfix ufw squid3 openvpnas freeradius snort"
+programs="apache2 fail2ban  squid3 openvpnas freeradius snort"
 
 function isRunning(){
 if [ -z "$(pgrep $1)" ]
@@ -16,8 +16,28 @@ if [ -z "$(pgrep $1)" ]
     fi 
 }
 
+function firewallIsRunning(){
+if [ -z "$(sudo service ufw status |grep running)" ]
+    then 
+        echo -e "${YELLOW} ufw is NOT running"
+    else
+        echo -e "${GREEN} ufw is RUNNING"
+    fi
+}
+
+function postfixIsRunning(){
+if [ -z "$(sudo service postfix status|grep not)" ]
+    then
+        echo -e "${GREEN} postfix is RUNNING"
+    else
+        echo -e "${YELLOW} postfix is NOT RUNNING"
+    fi
+}
+
 for program in $programs
     do
         isRunning $program
     done
+firewallIsRunning
+postfixIsRunning
 echo -en "${RESTORE}"
