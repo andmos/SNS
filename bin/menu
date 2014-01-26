@@ -2,7 +2,7 @@
 
 echo "
 
-    M E N Y
+    M E N U
     1. Start firewall  
     2. Start apachemonitor  
     3. Start fail2ban (IPS service) 
