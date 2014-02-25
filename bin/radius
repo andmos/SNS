@@ -1,6 +1,6 @@
 #! /bin/bash
 clear
-echo "Radius is currently only available from localhost."
+echo "Radius is currently only available from localhost. To add more clients, edit SNS/Recources/radius/clients.conf."
 echo "User is vagrant, with password 'vagrant'."
 echo -e "\n" 
 sleep 4
