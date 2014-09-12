@@ -4,7 +4,7 @@
 Vagrant::Config.run do |config|
   config.vm.box = "Simple Network Server box"
 # To speed up the process under testing, just comment out unwanted modules
-  config.vm.box_url = "http://files.vagrantup.com/precise32.box" 
+  config.vm.box_url = "http://files.vagrantup.com/precise64.box" 
   config.vm.provision :shell, :path => "freshInstallWeb"
   config.vm.provision :shell, :path => "bin/usersSetup" 
   config.vm.provision :shell, :path => "bin/databaseSetup"
@@ -24,4 +24,14 @@ Vagrant::Config.run do |config|
   config.vm.forward_port 943, 1886 #OpenVPN
   config.vm.forward_port 1812, 3624 #FreeRadius
   config.vm.forward_port 1813, 3626 #FreeRadius
+  
+ 
 end
+
+Vagrant.configure("2") do |config|
+    config.vm.provider :virtualbox do |virtualbox|
+        # allocate 1024 mb RAM
+         virtualbox.customize ["modifyvm", :id, "--memory", "1024"]
+         end
+        end
+
